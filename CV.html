@@ -183,9 +183,8 @@ body {
 
 /* ── EXPAND / COLLAPSE ───────────────────────────────── */
 .job-item, .app-item { cursor: pointer; }
-.job-collapsible, .app-collapsible { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
-.job-item.open .job-collapsible, .app-item.open .app-collapsible { max-height: 1200px; }
-.job-chevron, .app-chevron { flex-shrink: 0; align-self: flex-start; color: #b45309; font-size: 10px; margin-top: 3px; opacity: 0.5; transition: transform 0.3s, opacity 0.2s; user-select: none; }
+.job-collapsible, .app-collapsible { max-height: 0; overflow: hidden; transition: max-height 0.4s ease-in-out; }
+.job-chevron, .app-chevron { flex-shrink: 0; align-self: flex-start; color: #b45309; font-size: 10px; margin-top: 3px; opacity: 0.5; transition: transform 0.5s ease-in-out, opacity 0.3s ease-in-out; user-select: none; }
 .job-item.open .job-chevron, .app-item.open .app-chevron { transform: rotate(90deg); opacity: 1; }
 .job-expand, .app-expand { padding-top: 10px; }
 .job-expand-gallery { display: flex; gap: 6px; margin-top: 10px; }
@@ -944,7 +943,19 @@ body {
   })();
 
   document.querySelectorAll('.job-item, .app-item').forEach(function(item) {
-    item.addEventListener('click', function() { item.classList.toggle('open'); });
+    item.addEventListener('click', function() {
+      var collapsible = item.querySelector('.job-collapsible, .app-collapsible');
+      if (!collapsible) return;
+      if (item.classList.contains('open')) {
+        collapsible.style.maxHeight = collapsible.scrollHeight + 'px';
+        collapsible.offsetHeight; // force reflow so transition fires
+        collapsible.style.maxHeight = '0';
+        item.classList.remove('open');
+      } else {
+        item.classList.add('open');
+        collapsible.style.maxHeight = collapsible.scrollHeight + 'px';
+      }
+    });
   });
   document.querySelectorAll('.job-item a, .app-item a').forEach(function(link) {
     link.addEventListener('click', function(e) { e.stopPropagation(); });
