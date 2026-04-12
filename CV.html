@@ -113,7 +113,7 @@ body {
 
 .job-list { display: flex; flex-direction: column; gap: 14px; }
 .job-item { display: flex; gap: 16px; background: #fff; border: 1px solid #e7e5e4; border-radius: 8px; padding: 14px 16px; overflow: hidden; }
-.job-thumb { width: 150px; min-height: 90px; flex-shrink: 0; border-radius: 5px; object-fit: cover; align-self: flex-start; }
+.job-thumb { width: 150px; min-height: 90px; flex-shrink: 0; border-radius: 5px; object-fit: cover; align-self: flex-start; transition: height 0.4s ease-in-out; }
 .job-body { flex: 1; min-width: 0; }
 .job-header { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; flex-wrap: wrap; }
 .job-title { font-size: 14px; font-weight: 700; color: #1c1917; }
@@ -174,7 +174,7 @@ body {
 /* ── APPS ────────────────────────────────────────────── */
 .app-list { display: flex; flex-direction: column; gap: 12px; }
 .app-item { display: flex; gap: 16px; background: #fff; border: 1px solid #e7e5e4; border-radius: 8px; padding: 14px 16px; align-items: center; }
-.app-img { width: 100px; height: 140px; flex-shrink: 0; object-fit: contain; display: block; border-radius: 6px; background: #f5f0ea; align-self: flex-start; }
+.app-img { width: 100px; height: 140px; flex-shrink: 0; object-fit: contain; display: block; border-radius: 6px; background: #f5f0ea; align-self: flex-start; transition: height 0.4s ease-in-out; }
 .app-body { flex: 1; }
 .app-body { flex: 1; }
 .app-title { font-size: 14px; font-weight: 700; color: #1c1917; }
@@ -877,6 +877,19 @@ body {
     setLang(lang);
   })();
 
+  function animateImgOpen(img) {
+    if (!img || !img.naturalWidth) return;
+    if (window.getComputedStyle(img).objectFit !== 'contain') return;
+    img.dataset.origHeight = img.style.height || window.getComputedStyle(img).height;
+    var targetH = Math.round(img.naturalHeight * img.clientWidth / img.naturalWidth);
+    img.style.height = targetH + 'px';
+  }
+
+  function animateImgClose(img) {
+    if (!img || !img.dataset.origHeight) return;
+    img.style.height = img.dataset.origHeight;
+  }
+
   function closeItem(item) {
     var collapsible = item.querySelector('.job-collapsible, .app-collapsible');
     if (!collapsible) return;
@@ -884,6 +897,7 @@ body {
     collapsible.offsetHeight; // force reflow so transition fires
     collapsible.style.maxHeight = '0';
     item.classList.remove('open');
+    animateImgClose(item.querySelector('.job-thumb, .app-img'));
   }
 
   function openItem(item) {
@@ -891,6 +905,7 @@ body {
     if (!collapsible) return;
     item.classList.add('open');
     collapsible.style.maxHeight = collapsible.scrollHeight + 'px';
+    animateImgOpen(item.querySelector('.job-thumb, .app-img'));
   }
 
   document.querySelectorAll('.job-item, .app-item').forEach(function(item) {
