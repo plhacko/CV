@@ -18,7 +18,7 @@ body {
 /* ── LANG TOGGLE ─────────────────────────────────────── */
 .lang-toggle {
   position: absolute;
-  top: 18px;
+  top: 12px;
   right: 52px;
   display: flex;
   align-items: center;
@@ -123,6 +123,7 @@ body {
 /* ── TAGS ────────────────────────────────────────────── */
 .tags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 8px; }
 .tag { font-size: 10.5px; background: #fef3c7; color: #92400e; border: 1px solid #fde68a; border-radius: 20px; padding: 2px 9px; font-weight: 600; white-space: nowrap; }
+.tag-status { font-size: 10.5px; background: #f0f9ff; color: #0369a1; border: 1px solid #bae6fd; border-radius: 20px; padding: 2px 9px; font-weight: 600; white-space: nowrap; }
 
 /* ── NOTABLE PROJECTS ────────────────────────────────── */
 .project-list { display: flex; flex-direction: column; gap: 12px; }
@@ -186,6 +187,8 @@ body {
 .job-collapsible, .app-collapsible { max-height: 0; overflow: hidden; transition: max-height 0.4s ease-in-out; }
 .job-chevron, .app-chevron { flex-shrink: 0; align-self: flex-start; color: #b45309; font-size: 10px; opacity: 0.5; transition: transform 0.5s ease-in-out, opacity 0.3s ease-in-out; user-select: none; padding: 16px; margin: -13px -16px -16px -16px; }
 .job-item.open .job-chevron, .app-item.open .app-chevron { transform: rotate(90deg); opacity: 1; }
+.battleships-box { max-height: 90px; overflow: hidden; transition: max-height 0.4s ease-in-out; }
+.job-item.open .battleships-box { max-height: 175px; }
 .job-expand, .app-expand { padding-top: 10px; }
 .job-expand-gallery { display: flex; gap: 6px; margin-top: 10px; }
 .job-expand-gallery img { flex: 1; height: 140px; object-fit: cover; border-radius: 5px; }
@@ -209,6 +212,7 @@ body {
 .rec-box { border: 1px solid #e7e5e4; border-radius: 10px; padding: 20px 24px; background: #fff; position: relative; }
 .rec-quote { font-size: 13px; color: #57534e; line-height: 1.75; font-style: italic; }
 .rec-quote::before { content: '\201C'; font-size: 40px; color: #e7e5e4; line-height: 0; vertical-align: -14px; margin-right: 4px; font-style: normal; }
+.rec-quote::after { content: '\201D'; font-size: 40px; color: #e7e5e4; line-height: 0; vertical-align: -14px; margin-left: 4px; font-style: normal; }
 .rec-author { margin-top: 14px; font-size: 12.5px; font-weight: 700; color: #1c1917; }
 .rec-role { font-size: 12px; color: #b45309; font-weight: 600; margin-top: 1px; }
 
@@ -251,8 +255,8 @@ body {
     <div>
       <div class="header-name">Tomáš Plhák</div>
       <div class="header-title">
-        <span class="en-only">Game Developer</span>
-        <span class="cs-only">Vývojář her</span>
+        <span class="en-only">Programmer · Game Developer</span>
+        <span class="cs-only">Programátor · Herní vývojář</span>
       </div>
     </div>
     <div class="header-contact">
@@ -309,9 +313,9 @@ body {
 
   <!-- Summary -->
   <p class="summary en-only">
-    Game developer with a Computer Science background from Charles University (game development track)
-    and 2+ years of professional experience at Flying Rat Studio. Shipped titles on PS4, PS5, PS VR2,
-    Xbox One, Xbox Series X|S, and Nintendo Switch. Fluent in both Unity/C# and Unreal Engine/C++.
+    <b>Game developer</b> with a Computer Science background from <b>Charles University</b> — Faculty of Mathematics and Physics (Matfyz), game development track
+    and <b>2+ years</b> of professional experience at <b>Flying Rat Studio</b>. Was part of the team that shipped titles on
+    <b>PS4, PS5, PS VR2, Xbox One, Xbox Series X|S, and Nintendo Switch</b>. Fluent in both <b>Unity/C#</b> and <b>Unreal Engine/C++</b>.
     Passionate about creative problem-solving, connecting the virtual and real world, and building
     games that are genuinely fun.
   </p>
@@ -348,16 +352,16 @@ body {
             <div class="app-item">
               <img src="imgs_en/czech_step_by_step.png" alt="Step by Step App" class="app-img">
               <div class="app-body">
-                <div class="app-title">Step by Step App <span style="color:#a8a29e;font-weight:400;font-size:12px;">— WIP</span></div>
-                <div class="app-sub en-only">Flutter · Dart · FlutterFlow · Early development</div>
-                <div class="app-sub cs-only">Flutter · Dart · FlutterFlow · Raná fáze vývoje</div>
-                <div class="app-desc en-only">Czech language learning app for foreigners, tied to the successful Step by Step textbook series. Same technology stack as the Reflex Locomotion app. Design by Vojtěch Pinc.</div>
-                <div class="app-desc cs-only">Aplikace pro výuku češtiny pro cizince, navázaná na úspěšnou učebnicovou řadu Step by Step. Stejný technologický základ jako Reflex Locomotion app. Design: Vojtěch Pinc.</div>
-                <div class="tags" style="margin-top:8px;"><span class="tag">Flutter</span><span class="tag">Dart</span><span class="tag">FlutterFlow</span></div>
+                <div class="app-title">Step by Step App</div>
+                <div class="app-sub en-only">Flutter · Dart · Claude</div>
+                <div class="app-sub cs-only">Flutter · Dart · Claude</div>
+                <div class="app-desc en-only">Czech language learning app for foreigners, tied to the successful Step by Step textbook series. Also my experimentation with Claude as a coding assistant. Initial graphic design by Vojtěch Pinc.</div>
+                <div class="app-desc cs-only">Aplikace pro výuku češtiny pro cizince, navázaná na úspěšnou učebnicovou řadu Step by Step. Zároveň mé experimentování s Claudem jako kódovacím asistentem. Počáteční grafický design: Vojtěch Pinc.</div>
+                <div class="tags" style="margin-top:8px;"><span class="tag">Flutter</span><span class="tag">Dart</span><span class="tag">Claude</span><span class="tag-status en-only">Early development</span><span class="tag-status cs-only">Raná fáze vývoje</span></div>
                 <div class="app-collapsible">
                   <div class="app-expand">
-                    <div class="job-expand-detail en-only">The Step by Step textbook series is widely used across Europe for teaching Czech to adult foreigners. The app follows the same curriculum structure, providing audio, vocabulary exercises, and grammar guides alongside the book. Built in FlutterFlow for rapid iteration, with a clean Flutter/Dart export path for full customisation. Design by Vojtěch Pinc.</div>
-                    <div class="job-expand-detail cs-only">Učebnicová řada Step by Step je hojně využívána v Evropě pro výuku češtiny dospělým cizincům. Aplikace kopíruje strukturu učebnice — nabízí audio, slovníčky a gramatiku. Stavěná ve FlutterFlow s exportem do čistého Flutter projektu. Design: Vojtěch Pinc.</div>
+                    <div class="job-expand-detail en-only">The Step by Step textbook series is widely used across Europe for teaching Czech to adult foreigners. The app follows the same curriculum structure, providing audio, vocabulary exercises, and grammar guides alongside the book. Built with Flutter and Dart, using Claude as the primary coding assistant.</div>
+                    <div class="job-expand-detail cs-only">Učebnicová řada Step by Step je hojně využívána v Evropě pro výuku češtiny dospělým cizincům. Aplikace kopíruje strukturu učebnice — nabízí audio, slovníčky a gramatiku. Stavěná ve Flutteru a Dartu s Claudem jako hlavním kódovacím asistentem.</div>
                   </div>
                 </div>
               </div>
@@ -366,17 +370,17 @@ body {
             <div class="app-item">
               <img src="imgs_en/VojtovaMetodaDruheGenerace.png" alt="Reflex Locomotion App" class="app-img">
               <div class="app-body">
-                <div class="app-title en-only">Reflex Locomotion App <span style="color:#a8a29e;font-weight:400;font-size:12px;">— nearly finished</span></div>
-                <div class="app-title cs-only">Aplikace Reflex Locomotion <span style="color:#a8a29e;font-weight:400;font-size:12px;">— téměř hotovo</span></div>
+                <div class="app-title en-only">Reflex Locomotion App</div>
+                <div class="app-title cs-only">Aplikace Reflex Locomotion</div>
                 <div class="app-sub en-only">Flutter · Dart · FlutterFlow · ETA 2026</div>
                 <div class="app-sub cs-only">Flutter · Dart · FlutterFlow · Dokončení v roce 2026</div>
                 <div class="app-desc en-only">Medical rehabilitation app for Rehabilitace Karlovy Vary s.r.o., guiding users through the Vojta Method (reflex locomotion therapy). Multi-language support. Built with FlutterFlow for rapid UI development, with full Flutter/Dart export. Design by Vojtěch Pinc.</div>
                 <div class="app-desc cs-only">Rehabilitační aplikace pro Rehabilitace Karlovy Vary s.r.o. zaměřená na Vojtovu metodu reflexní lokomoce. Vícejazyčná podpora. Stavěná ve FlutterFlow s možností exportu do čistého Flutter projektu. Design: Vojtěch Pinc.</div>
-                <div class="tags" style="margin-top:8px;"><span class="tag">Flutter</span><span class="tag">Dart</span><span class="tag">FlutterFlow</span><span class="tag en-only">Medical</span><span class="tag cs-only">Medicína</span></div>
+                <div class="tags" style="margin-top:8px;"><span class="tag">Flutter</span><span class="tag">Dart</span><span class="tag">FlutterFlow</span><span class="tag en-only">Medical</span><span class="tag cs-only">Medicína</span><span class="tag-status en-only">Nearly finished</span><span class="tag-status cs-only">Téměř hotovo</span></div>
                 <div class="app-collapsible">
                   <div class="app-expand">
-                    <div class="job-expand-detail en-only">The Vojta Method (reflex locomotion therapy) is a neurophysiological treatment for patients with motor system disorders — cerebral palsy, scoliosis, post-stroke recovery. The app guides both practitioners and patients through the full therapy sequence with visual aids, step-by-step instructions, and multi-language support. Commissioned by Rehabilitace Karlovy Vary s.r.o. Design by Vojtěch Pinc.</div>
-                    <div class="job-expand-detail cs-only">Vojtova metoda reflexní lokomoce je neurofyziologická léčebná metoda pro pacienty s poruchami motorického systému — mozková obrna, skolióza, rekonvalescence po mrtvici. Aplikace provádí terapeuty i pacienty celou sekvencí cviků s vizuálními pomůckami a vícejazyčnou podporou. Objednáno Rehabilitací Karlovy Vary s.r.o. Design: Vojtěch Pinc.</div>
+                    <div class="job-expand-detail en-only">The Vojta Method (reflex locomotion therapy) is a neurophysiological treatment for patients with motor system disorders — cerebral palsy, scoliosis, post-stroke recovery. The app guides both practitioners and patients through the full therapy sequence with visual aids, step-by-step instructions, and multi-language support. Commissioned by Rehabilitace Karlovy Vary s.r.o.</div>
+                    <div class="job-expand-detail cs-only">Vojtova metoda reflexní lokomoce je neurofyziologická léčebná metoda pro pacienty s poruchami motorického systému — mozková obrna, skolióza, rekonvalescence po mrtvici. Aplikace provádí terapeuty i pacienty celou sekvencí cviků s vizuálními pomůckami a vícejazyčnou podporou. Objednáno Rehabilitací Karlovy Vary s.r.o.</div>
                   </div>
                 </div>
               </div>
@@ -411,7 +415,7 @@ body {
                 <div class="tags"><span class="tag">Unreal Engine</span><span class="tag">C++</span><span class="tag">Blueprints</span><span class="tag">Behaviour Trees</span></div>
                 <div class="job-collapsible">
                   <div class="job-expand">
-                    <div class="job-expand-detail en-only">My first real Unreal Engine project. I worked in both C++ and Blueprints — implementing gameplay systems, authoring behaviour trees for AI, hooking up sound effects at the code level, and performing general debugging across the codebase. The project will be released publicly in the future.</div>
+                    <div class="job-expand-detail en-only">My first real Unreal Engine project. I worked in both C++ and Blueprints — implementing gameplay systems, authoring behaviour trees for AI, hooking up sound effects at the code level, and performing general debugging across the codebase. The project will be released publicly in the near future.</div>
                     <div class="job-expand-detail cs-only">Můj první skutečný projekt v Unreal Enginu. Pracoval jsem v C++ i Blueprintech — implementace herních systémů, tvorba stromů chování pro AI, napojení zvukových efektů na úrovni kódu a obecné ladění chyb v kódu. Projekt bude v budoucnu veřejně vydán.</div>
                   </div>
                 </div>
@@ -429,10 +433,10 @@ body {
                 </div>
                 <div class="job-desc en-only">Part of the Flying Rat team responsible for the PS VR2 port of the world's best-selling VR game. Later moved to performance optimisations, tool creation, and general bug fixing across the codebase.</div>
                 <div class="job-desc cs-only">Součást týmu zodpovědného za port nejprodávanější VR hry na PS VR2. Následně přechod na výkonnostní optimalizace, tvorbu nástrojů a obecné opravy chyb v kódu.</div>
-                <div class="tags"><span class="tag">Unity</span><span class="tag">C#</span><span class="tag">PS VR2</span><span class="tag en-only">Optimisation</span><span class="tag cs-only">Optimalizace</span></div>
+                <div class="tags"><span class="tag">Unity</span><span class="tag">C#</span><span class="tag">PS VR2</span><span class="tag">Oculus VR</span><span class="tag en-only">Internal tooling</span><span class="tag cs-only">Interní nástroje</span><span class="tag en-only">Optimisation</span><span class="tag cs-only">Optimalizace</span></div>
                 <div class="job-collapsible">
                   <div class="job-expand">
-                    <div class="job-expand-detail en-only">Beat Saber is the world's most popular VR game. I was part of the Flying Rat team that delivered the PS VR2 port — working on platform-specific VR input mapping, performance profiling, and ensuring the build met Sony's certification requirements. After the port shipped, the collaboration continued: performance optimisations, internal tooling, and general bug fixing across the codebase.</div>
+                    <div class="job-expand-detail en-only">Beat Saber is the world's most popular VR game. I was part of the Flying Rat team after they delivered the PS VR2 port — working in platform-specific VR environment, performance profiling, and ensuring the build met Sony's certification requirements, performance optimisations, internal tooling, and general bug fixing across the codebase.</div>
                     <div class="job-expand-detail cs-only">Beat Saber je nejpopulárnější VR hra světa. Byl jsem součástí týmu Flying Rat zodpovědného za port na PS VR2 — mapování VR ovladačů, výkonnostní profilování a plnění Sonyho certifikačních požadavků. Po vydání portu spolupráce pokračovala: optimalizace výkonu, interní nástroje a obecné opravy chyb.</div>
                     <a class="job-expand-link" href="https://www.youtube.com/watch?v=vL39Sg2AqWg" target="_blank">Trailer ↗</a>
                   </div>
@@ -448,7 +452,7 @@ body {
                   <span class="job-duration en-only">~7 months</span>
                   <span class="job-duration cs-only">~7 měsíců</span>
                 </div>
-                <div class="job-desc en-only">Ported a boomer shooter from the DarkPlaces engine to Unity, targeting PS4, PS5, Xbox One, Xbox Series X|S, and Nintendo Switch. Responsible for gameplay features, UI implementation, and console-specific bug fixing.</div>
+                <div class="job-desc en-only">I was part of the team in porting a boomer shooter from the DarkPlaces engine to Unity, targeting PS4, PS5, Xbox One, Xbox Series X|S, and Nintendo Switch. Responsible for gameplay features, UI implementation, and console-specific bug fixing.</div>
                 <div class="job-desc cs-only">Port boomer shooteru z engine DarkPlaces do Unity pro PS4, PS5, Xbox One, Xbox Series X|S a Nintendo Switch. Implementace herních a UI funkcí, opravy chyb specifických pro konzole.</div>
                 <div class="tags"><span class="tag">Unity</span><span class="tag">C#</span><span class="tag">PS4/PS5</span><span class="tag">Xbox</span><span class="tag">Nintendo Switch</span></div>
                 <div class="job-collapsible">
@@ -488,7 +492,7 @@ body {
             <div class="course-item en-only">Intro to Game Development (Unity)</div><div class="course-item cs-only">Základy vývoje počítačových her (Unity)</div>
             <div class="course-item en-only">Game Mechanics Programming (Godot)</div><div class="course-item cs-only">Programování herních mechanik (Godot)</div>
             <div class="course-item en-only">Introduction to Game Design</div>    <div class="course-item cs-only">Úvod do herního designu</div>
-            <div class="course-item en-only">Computer Graphics Fundamentals</div> <div class="course-item cs-only">Základy počítačové grafiky</div>
+            <div class="course-item en-only">Introduction to Computer Graphics</div> <div class="course-item cs-only">Základy počítačové grafiky</div>
             <div class="course-item en-only">Algorithms &amp; Data Structures 1 &amp; 2</div><div class="course-item cs-only">Algoritmy a datové struktury 1 &amp; 2</div>
             <div class="course-item en-only">Practical Game Jam course ×4</div>   <div class="course-item cs-only">Praktikum z vývoje her (Game Jam) ×4</div>
           </div>
@@ -506,7 +510,13 @@ body {
                 </div>
                 <div class="job-desc en-only">Commander-based RTS played in a real park. The commander's in-game position is linked to the player's GPS location. Designer, project lead, and programmer. Came with a full trailer.</div>
                 <div class="job-desc cs-only">Commander-based RTS hrané v reálném parku — pozice velitele odpovídá GPS souřadnicím. Designer, projektový vedoucí a programátor. Hra má plnohodnotný trailer.</div>
-                <div class="tags"><span class="tag">Unity</span><span class="tag">C#</span><span class="tag">GPS</span><span class="tag">Multiplayer</span></div>
+                <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:4px;margin-top:8px;">
+                  <div class="tags" style="margin-top:0;"><span class="tag">Unity</span><span class="tag">C#</span><span class="tag">GPS</span><span class="tag">Multiplayer</span></div>
+                  <div style="display:flex;gap:8px;">
+                    <a class="job-expand-link" href="https://youtu.be/xOWQxrlXrCQ" target="_blank" onclick="event.stopPropagation()">Trailer ↗</a>
+                    <a class="job-expand-link" href="https://www.youtube.com/watch?v=H3VAlvPWSDw" target="_blank" onclick="event.stopPropagation()">Gameplay ↗</a>
+                  </div>
+                </div>
                 <div class="job-collapsible">
                   <div class="job-expand">
                     <div class="job-expand-detail en-only">Players first meet in a park, draw the arena boundaries together, then play a simple commander-based RTS where each commander's position is synced to their real GPS coordinates — blending the physical world with the game map. I was responsible for the game design, project leadership, and parts of the programming. The game shipped with a full gameplay trailer.</div>
@@ -515,8 +525,6 @@ body {
                       <img src="imgs_en/ParkGame_1.png" alt="Park Game gameplay">
                       <img src="imgs_en/ParkGame_2.png" alt="Park Game map view">
                     </div>
-                    <a class="job-expand-link" href="https://youtu.be/xOWQxrlXrCQ" target="_blank"><span class="en-only">Trailer ↗</span><span class="cs-only">Trailer ↗</span></a>
-                    <a class="job-expand-link" href="https://www.youtube.com/watch?v=H3VAlvPWSDw" target="_blank"><span class="en-only">Gameplay ↗</span><span class="cs-only">Gameplay ↗</span></a>
                   </div>
                 </div>
               </div>
@@ -566,7 +574,10 @@ body {
             </div>
 
             <div class="job-item">
-              <img src="imgs_en/Battleships2_1.png" alt="BattleShips" class="job-thumb" style="height:90px;object-fit:contain;background:#f5f0ea;">
+              <div class="battleships-box" style="width:150px;flex-shrink:0;border-radius:5px;background:#f5f0ea;">
+                <img src="imgs_en/Battleships2_1.png" alt="BattleShips" style="width:150px;height:90px;object-fit:contain;display:block;">
+                <img src="imgs_en/Battleships2_2.png" alt="BattleShips second view" style="width:150px;object-fit:contain;display:block;">
+              </div>
               <div class="job-body">
                 <div class="job-header">
                   <span class="job-title">BattleShips</span>
@@ -603,10 +614,10 @@ body {
           <div class="edu-sub cs-only">Střední škola</div>
           <div class="edu-desc en-only">Maturita: Mathematics (state &amp; school), Mathematics+, Computer Science, Czech Language</div>
           <div class="edu-desc cs-only">Maturita: Matematika (státní &amp; školní), Matematika+, Informatika, Český jazyk</div>
-          <div class="edu-sub en-only" style="margin-top:6px;">Volunteer counsellor at YMCA Braník · Lead camp organiser since 2022</div>
+          <div class="edu-sub en-only" style="margin-top:6px;">Volunteer counsellor at YMCA Braník · Lead camp organiser 2022–2023</div>
           <div class="edu-sub cs-only" style="margin-top:6px;">Dobrovolný vedoucí YMCA Braník · Hlavní vedoucí tábora Pecka od 2022</div>
-          <div class="edu-desc en-only" style="margin-top:6px;">Since age 15 I have volunteered at summer camps and at weekly meetings with youth. I regularly designed and ran small games — something new every Friday. Over the years I also created several larger long-running experiences: two multi-year board game campaigns played round by round at weekly meetings, and a large hex-tile final game for one of our summer camps. In 2022–2023 I served as lead organiser of Camp Pecka.</div>
-          <div class="edu-desc cs-only" style="margin-top:6px;">Od 15 let se věnuji práci s dětmi na schůzkách a táborech. Pravidelně jsem navrhoval a vedl nové hry — každý pátek něco jiného. Postupem času jsem vytvořil i několik větších celoročních projektů: dvě celoroční deskohry hrané po krocích na schůzkách a velkou závěrečnou hru jednoho z táborů. V letech 2022–2023 jsem působil jako hlavní vedoucí tábora Pecka.</div>
+          <div class="edu-desc en-only" style="margin-top:6px;">Since age 15 I have volunteered at summer camps and at weekly meetings with youth. I regularly designed and ran small games — something new every Friday. Over the years I also created several larger long-running experiences: two multi-year board game campaigns played round by round at weekly meetings, and a large hex-tile final game for one of our summer camps. In 2022–2023 I served as lead organiser of summer camp Pecka.</div>
+          <div class="edu-desc cs-only" style="margin-top:6px;">Od 15 let se věnuji práci s dětmi na schůzkách a táborech. Pravidelně jsem navrhoval a vedl nové hry — každý pátek něco jiného. Postupem času jsem vytvořil i několik větších celoročních projektů: dvě celoroční deskohry hrané po krocích na schůzkách a velkou závěrečnou hru jednoho z táborů. V letech 2022–2023 jsem působil jako hlavní vedoucí letního tábora Pecka.</div>
           <div class="job-list" style="margin-top:12px;">
 
             <div class="job-item">
@@ -776,6 +787,7 @@ body {
         <div>
           <div class="rec-author">Matouš Márai</div>
           <div class="rec-role">CEO · Flying Rat Studio</div>
+          <div class="rec-role" style="color:#57534e;font-weight:400;"><a href="mailto:matous.marai@flying-rat.studio" style="color:#57534e;text-decoration:underline;">matous.marai@flying-rat.studio</a></div>
         </div>
         <img src="imgs_en/FlyingRatStudio_black.webp" alt="Flying Rat Studio" style="height:48px; object-fit:contain;">
       </div>
