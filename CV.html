@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tomáš Plhák — CV</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  color: #44403c;
+  background: #fafaf8;
+  line-height: 1.7;
+}
+
+/* ── LANG TOGGLE ─────────────────────────────────────── */
+.lang-toggle {
+  position: absolute;
+  top: 18px;
+  right: 52px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.lang-btn {
+  background: none;
+  border: none;
+  color: #78716c;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  cursor: pointer;
+  padding: 3px 6px;
+  border-radius: 4px;
+  transition: color 0.15s;
+}
+.lang-btn:hover { color: #fafaf8; }
+.lang-btn.active { color: #b45309; }
+.lang-sep { color: #44403c; font-size: 12px; }
+
+/* ── HEADER ─────────────────────────────────────────── */
+.cv-header {
+  background: #1c1917;
+  color: #fafaf8;
+  padding: 36px 52px 28px;
+  position: relative;
+}
+
+.header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.header-name { font-size: 32px; font-weight: 700; color: #fff; letter-spacing: -0.5px; line-height: 1.1; }
+.header-title { font-size: 13px; font-weight: 600; color: #b45309; text-transform: uppercase; letter-spacing: 1.8px; margin-top: 6px; }
+
+.header-contact { display: flex; flex-direction: column; align-items: flex-end; gap: 4px; font-size: 12px; color: #a8a29e; }
+.header-contact a { color: #d6c7a8; text-decoration: none; }
+.header-contact a:hover { color: #fff; }
+.contact-row { display: flex; gap: 16px; flex-wrap: wrap; justify-content: flex-end; }
+
+.header-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding-top: 18px;
+  border-top: 1px solid #292524;
+}
+.skill-item { display: flex; align-items: center; gap: 8px; }
+.skill-item-name { font-size: 12px; color: #d6c7a8; white-space: nowrap; }
+.stars { display: flex; gap: 3px; }
+.star { width: 8px; height: 8px; border-radius: 50%; background: #44403c; }
+.star.on { background: #b45309; }
+
+/* ── BODY ────────────────────────────────────────────── */
+.cv-body { max-width: 860px; margin: 0 auto; padding: 0 40px 60px; }
+
+.summary { padding: 28px 0 24px; font-size: 14px; color: #57534e; line-height: 1.8; border-bottom: 1px solid #e7e5e4; }
+
+/* ── SECTION ─────────────────────────────────────────── */
+.section { padding: 28px 0; border-bottom: 1px solid #e7e5e4; }
+.section:last-child { border-bottom: none; }
+
+.section-title {
+  font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px;
+  color: #1c1917; margin-bottom: 20px; display: flex; align-items: center; gap: 12px;
+}
+.section-title::after { content: ''; flex: 1; height: 2px; background: #b45309; border-radius: 1px; }
+
+/* ── EDUCATION ───────────────────────────────────────── */
+.edu-list { display: flex; flex-direction: column; gap: 16px; }
+.edu-row { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; flex-wrap: wrap; }
+.edu-title { font-size: 14px; font-weight: 700; color: #1c1917; }
+.edu-date { font-size: 12px; color: #a8a29e; white-space: nowrap; }
+.edu-sub { font-size: 13px; color: #b45309; font-weight: 600; margin-top: 1px; }
+.edu-desc { font-size: 13px; color: #57534e; margin-top: 4px; }
+.courses-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px 20px; margin-top: 8px; }
+.course-item { font-size: 12px; color: #57534e; }
+
+/* ── CAREER ──────────────────────────────────────────── */
+.employer { margin-bottom: 6px; }
+.employer-row { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+.employer-name { font-size: 16px; font-weight: 700; color: #1c1917; }
+.employer-date { font-size: 12px; color: #a8a29e; white-space: nowrap; }
+.employer-desc { font-size: 13px; color: #78716c; margin-bottom: 14px; }
+
+.job-list { display: flex; flex-direction: column; gap: 14px; }
+.job-item { display: flex; gap: 16px; background: #fff; border: 1px solid #e7e5e4; border-radius: 8px; padding: 14px 16px; overflow: hidden; }
+.job-thumb { width: 150px; min-height: 90px; flex-shrink: 0; border-radius: 5px; object-fit: cover; align-self: flex-start; }
+.job-body { flex: 1; min-width: 0; }
+.job-header { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; flex-wrap: wrap; }
+.job-title { font-size: 14px; font-weight: 700; color: #1c1917; }
+.job-duration { font-size: 11px; color: #a8a29e; white-space: nowrap; }
+.job-desc { font-size: 13px; color: #57534e; margin-top: 4px; line-height: 1.6; }
+
+/* ── TAGS ────────────────────────────────────────────── */
+.tags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 8px; }
+.tag { font-size: 10.5px; background: #fef3c7; color: #92400e; border: 1px solid #fde68a; border-radius: 20px; padding: 2px 9px; font-weight: 600; white-space: nowrap; }
+
+/* ── NOTABLE PROJECTS ────────────────────────────────── */
+.project-list { display: flex; flex-direction: column; gap: 12px; }
+
+.project-row {
+  display: flex;
+  background: #fff;
+  border: 1px solid #e7e5e4;
+  border-radius: 8px;
+  overflow: hidden;
+  min-height: 190px;
+}
+.project-img-wrap { width: 38%; flex-shrink: 0; position: relative; }
+.project-img-wrap img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.project-body { flex: 1; padding: 18px 20px; display: flex; flex-direction: column; justify-content: flex-start; min-width: 0; }
+.project-title { font-size: 15px; font-weight: 700; color: #1c1917; line-height: 1.3; }
+.project-meta { font-size: 11.5px; color: #b45309; font-weight: 600; margin-top: 2px; }
+.project-desc { font-size: 13px; color: #57534e; margin-top: 6px; line-height: 1.65; }
+.project-link { font-size: 12px; color: #b45309; text-decoration: none; display: inline-block; margin-top: 8px; font-weight: 600; }
+.project-link:hover { text-decoration: underline; }
+
+.mini-gallery { display: flex; gap: 4px; margin-top: 8px; }
+.mini-gallery img { flex: 1; height: 58px; object-fit: cover; border-radius: 4px; }
+
+/* ── UNIVERSITY PROJECTS ─────────────────────────────── */
+.uni-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+.uni-card { background: #fff; border: 1px solid #e7e5e4; border-radius: 8px; overflow: hidden; }
+.uni-card-imgs { display: flex; height: 110px; }
+.uni-card-imgs img { flex: 1; object-fit: cover; }
+.uni-card-imgs img + img { border-left: 2px solid #fafaf8; }
+.uni-card-img { display: block; width: 100%; height: 110px; object-fit: cover; }
+.uni-body { padding: 12px 14px; }
+.uni-title { font-size: 13.5px; font-weight: 700; color: #1c1917; }
+.uni-course { font-size: 11px; color: #b45309; font-weight: 600; margin-top: 2px; }
+.uni-desc { font-size: 12px; color: #57534e; margin-top: 5px; line-height: 1.6; }
+
+/* ── GAME JAMS ───────────────────────────────────────── */
+.jam-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.jam-card { background: #fff; border: 1px solid #e7e5e4; border-radius: 8px; overflow: hidden; }
+.jam-card img { display: block; width: 100%; height: 150px; object-fit: cover; }
+.jam-body { padding: 10px 12px 12px; }
+.jam-title { font-size: 13px; font-weight: 700; color: #1c1917; line-height: 1.3; }
+.jam-meta { font-size: 11px; color: #a8a29e; margin-top: 2px; }
+.jam-desc { font-size: 12px; color: #57534e; margin-top: 4px; line-height: 1.5; }
+.jam-link { font-size: 11px; color: #b45309; text-decoration: none; display: inline-block; margin-top: 5px; font-weight: 600; }
+.jam-link:hover { text-decoration: underline; }
+
+/* ── APPS ────────────────────────────────────────────── */
+.app-list { display: flex; flex-direction: column; gap: 12px; }
+.app-item { display: flex; gap: 18px; background: #fff; border: 1px solid #e7e5e4; border-radius: 8px; padding: 16px 18px; align-items: flex-start; }
+.app-img { width: 90px; height: 90px; object-fit: contain; border-radius: 6px; background: #f5f0ea; flex-shrink: 0; }
+.app-body { flex: 1; }
+.app-title { font-size: 14px; font-weight: 700; color: #1c1917; }
+.app-sub { font-size: 12px; color: #b45309; font-weight: 600; margin-top: 1px; }
+.app-desc { font-size: 13px; color: #57534e; margin-top: 5px; line-height: 1.65; }
+
+/* ── VOLUNTEER ───────────────────────────────────────── */
+.vol-list { display: flex; flex-direction: column; gap: 24px; }
+.vol-title { font-size: 14px; font-weight: 700; color: #1c1917; }
+.vol-sub { font-size: 12px; color: #b45309; font-weight: 600; margin-top: 2px; }
+.vol-desc { font-size: 13px; color: #57534e; margin-top: 5px; line-height: 1.65; }
+.vol-img { display: block; width: 100%; max-height: 260px; object-fit: cover; border-radius: 7px; margin-top: 10px; border: 1px solid #e7e5e4; }
+
+/* ── PRINT ───────────────────────────────────────────── */
+@media print {
+  body { background: #fff; font-size: 11px; }
+  .cv-header { -webkit-print-color-adjust: exact; print-color-adjust: exact; padding: 24px 36px 20px; }
+  .cv-body { padding: 0 36px 40px; }
+  .header-name { font-size: 26px; }
+  .lang-toggle { display: none; }
+  @page { margin: 0; size: A4; }
+  .project-row, .job-item, .jam-card, .app-item, .uni-card { break-inside: avoid; }
+}
+
+@media (max-width: 680px) {
+  .cv-header { padding: 24px 20px 20px; }
+  .cv-body { padding: 0 20px 40px; }
+  .header-top { flex-direction: column; }
+  .header-contact { align-items: flex-start; }
+  .project-row { flex-direction: column; }
+  .project-img-wrap { width: 100%; height: 180px; position: relative; }
+  .jam-grid { grid-template-columns: 1fr 1fr; }
+  .uni-grid { grid-template-columns: 1fr; }
+  .lang-toggle { top: 12px; right: 20px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ════════════ HEADER ════════════ -->
+<header class="cv-header">
+
+  <div class="lang-toggle">
+    <button id="btn-en" class="lang-btn active" onclick="setLang('en')">EN</button>
+    <span class="lang-sep">|</span>
+    <button id="btn-cs" class="lang-btn" onclick="setLang('cs')">CS</button>
+  </div>
+
+  <div class="header-top">
+    <div>
+      <div class="header-name">Tomáš Plhák</div>
+      <div class="header-title">
+        <span class="en-only">Game Developer</span>
+        <span class="cs-only">Vývojář her</span>
+      </div>
+    </div>
+    <div class="header-contact">
+      <div class="contact-row">
+        <span>your@email.com</span>
+        <span>+420 000 000 000</span>
+        <span class="en-only">Beroun / Prague, CZ</span>
+        <span class="cs-only">Beroun / Praha</span>
+      </div>
+      <div class="contact-row">
+        <a href="https://plhacko.itch.io" target="_blank">plhacko.itch.io</a>
+        <a href="https://drive.google.com/drive/folders/1Oi18t2zWhE8bXBGEt11r2jBymHIOHDJ9?usp=sharing" target="_blank">
+          <span class="en-only">Portfolio (Drive)</span>
+          <span class="cs-only">Portfolio (Drive)</span>
+        </a>
+        <span class="en-only">DOB: 31.3.2000</span>
+        <span class="cs-only">Datum nar.: 31.3.2000</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="header-skills">
+    <div class="skill-item">
+      <span class="skill-item-name">Unity &amp; C#</span>
+      <div class="stars"><div class="star on"></div><div class="star on"></div><div class="star on"></div><div class="star on"></div><div class="star on"></div></div>
+    </div>
+    <div class="skill-item">
+      <span class="skill-item-name">Unreal &amp; C++</span>
+      <div class="stars"><div class="star on"></div><div class="star on"></div><div class="star on"></div><div class="star on"></div><div class="star"></div></div>
+    </div>
+    <div class="skill-item">
+      <span class="skill-item-name">Godot &amp; GDScript</span>
+      <div class="stars"><div class="star on"></div><div class="star on"></div><div class="star"></div><div class="star"></div><div class="star"></div></div>
+    </div>
+    <div class="skill-item">
+      <span class="skill-item-name">Flutter &amp; Dart</span>
+      <div class="stars"><div class="star on"></div><div class="star on"></div><div class="star on"></div><div class="star"></div><div class="star"></div></div>
+    </div>
+    <div class="skill-item">
+      <span class="skill-item-name">Python · Bash · JS</span>
+      <div class="stars"><div class="star on"></div><div class="star on"></div><div class="star"></div><div class="star"></div><div class="star"></div></div>
+    </div>
+    <div class="skill-item" style="margin-left:auto;">
+      <span class="skill-item-name" style="color:#a8a29e;">
+        <span class="en-only">Czech — Native &nbsp;·&nbsp; English — Professional</span>
+        <span class="cs-only">Čeština — Rodný jazyk &nbsp;·&nbsp; Angličtina — Profesionální</span>
+      </span>
+    </div>
+  </div>
+</header>
+
+<!-- ════════════ BODY ════════════ -->
+<div class="cv-body">
+
+  <!-- Summary -->
+  <p class="summary en-only">
+    Game developer with a Computer Science background from Charles University (game development track)
+    and 2+ years of professional experience at Flying Rat Studio. Shipped titles on PS4, PS5, PS VR2,
+    Xbox One, Xbox Series X|S, and Nintendo Switch. Fluent in both Unity/C# and Unreal Engine/C++.
+    Passionate about creative problem-solving, connecting the virtual and real world, and building
+    games that are genuinely fun.
+  </p>
+  <p class="summary cs-only">
+    Vývojář her s informatickým vzděláním (MFF UK, specializace vývoj počítačových her) a více než
+    2 lety profesionálních zkušeností ve Flying Rat Studio. Podílel jsem se na vydání her pro PS4,
+    PS5, PS VR2, Xbox One, Xbox Series X|S a Nintendo Switch. Pracuji v Unity/C# i Unreal Engine/C++.
+    Zajímám se o kreativní řešení problémů, herní design a tvorbu zážitků, které propojují reálný
+    a virtuální svět.
+  </p>
+
+  <!-- ══ EDUCATION ══ -->
+  <section class="section">
+    <div class="section-title">
+      <span class="en-only">Education</span>
+      <span class="cs-only">Vzdělání</span>
+    </div>
+    <div class="edu-list">
+
+      <div>
+        <div class="edu-row">
+          <span class="edu-title en-only">Charles University — Faculty of Mathematics and Physics</span>
+          <span class="edu-title cs-only">Matematicko-fyzikální fakulta Univerzity Karlovy</span>
+          <span class="edu-date">2019 – 2023</span>
+        </div>
+        <div class="edu-sub en-only">BSc Computer Science · Game Development track</div>
+        <div class="edu-sub cs-only">Bc. Informatika – Vývoj počítačových her</div>
+        <div class="edu-desc en-only">Relevant courses:</div>
+        <div class="edu-desc cs-only">Výběr absolvovaných předmětů:</div>
+        <div class="courses-grid">
+          <div class="course-item en-only">Programming 1 (Python)</div>          <div class="course-item cs-only">Programování 1 (Python)</div>
+          <div class="course-item en-only">Programming 2 (C#)</div>              <div class="course-item cs-only">Programování 2 (C#)</div>
+          <div class="course-item en-only">Programming in C#</div>               <div class="course-item cs-only">Programování v C#</div>
+          <div class="course-item en-only">Advanced Programming in C#</div>     <div class="course-item cs-only">Pokročilé programování v C#</div>
+          <div class="course-item en-only">Programming in C++</div>              <div class="course-item cs-only">Programování v C++</div>
+          <div class="course-item en-only">Advanced Programming in C++</div>    <div class="course-item cs-only">Pokročilé programování v C++</div>
+          <div class="course-item en-only">Intro to Game Development (Unity)</div><div class="course-item cs-only">Základy vývoje počítačových her (Unity)</div>
+          <div class="course-item en-only">Game Mechanics Programming (Godot)</div><div class="course-item cs-only">Programování herních mechanik (Godot)</div>
+          <div class="course-item en-only">Introduction to Game Design</div>    <div class="course-item cs-only">Úvod do herního designu</div>
+          <div class="course-item en-only">Computer Graphics Fundamentals</div> <div class="course-item cs-only">Základy počítačové grafiky</div>
+          <div class="course-item en-only">Algorithms &amp; Data Structures 1 &amp; 2</div><div class="course-item cs-only">Algoritmy a datové struktury 1 &amp; 2</div>
+          <div class="course-item en-only">Practical Game Jam course ×4</div>   <div class="course-item cs-only">Praktikum z vývoje her (Game Jam) ×4</div>
+        </div>
+      </div>
+
+      <div>
+        <div class="edu-row">
+          <span class="edu-title">Gymnázium Joachima Barranda, Beroun</span>
+          <span class="edu-date">2011 – 2019</span>
+        </div>
+        <div class="edu-sub cs-only">Maturita: Matematika (státní &amp; školní), Matematika+, Informatika, Český jazyk</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══ CAREER ══ -->
+  <section class="section">
+    <div class="section-title">
+      <span class="en-only">Career</span>
+      <span class="cs-only">Kariéra</span>
+    </div>
+
+    <div class="employer">
+      <div class="employer-row">
+        <span class="employer-name">Flying Rat Studio</span>
+        <span class="employer-date">2023 – 2025</span>
+      </div>
+      <div class="employer-desc en-only">
+        Technology-focused studio specialising in console porting, optimisation, and advanced feature development.
+        <a href="https://www.flying-rat.studio" style="color:#b45309;font-size:12px;" target="_blank">flying-rat.studio ↗</a>
+      </div>
+      <div class="employer-desc cs-only">
+        Technologicky zaměřené studio specializující se na portaci her na konzole, optimalizace a vývoj pokročilých funkcí.
+        <a href="https://www.flying-rat.studio" style="color:#b45309;font-size:12px;" target="_blank">flying-rat.studio ↗</a>
+      </div>
+    </div>
+
+    <div class="job-list">
+
+      <div class="job-item">
+        <div class="job-body">
+          <div class="job-header">
+            <span class="job-title en-only">Unannounced Unreal Engine Project</span>
+            <span class="job-title cs-only">Neoznámený projekt v Unreal Engine</span>
+            <span class="job-duration en-only">~10 months</span>
+            <span class="job-duration cs-only">~10 měsíců</span>
+          </div>
+          <div class="job-desc en-only">Internal studio game built in Unreal Engine. Implemented gameplay features in C++ and Blueprints, authored behaviour trees, integrated audio (SFX hooks), and performed general debugging.</div>
+          <div class="job-desc cs-only">Interní projekt studia v Unreal Engine. Implementace herních mechanik v C++ a Blueprintech, tvorba stromů chování (Behaviour Trees), integrace zvukových efektů a ladění chyb.</div>
+          <div class="tags"><span class="tag">Unreal Engine</span><span class="tag">C++</span><span class="tag">Blueprints</span><span class="tag">Behaviour Trees</span></div>
+        </div>
+      </div>
+
+      <div class="job-item">
+        <img src="imgs_en/BeatSaber.png" alt="Beat Saber" class="job-thumb">
+        <div class="job-body">
+          <div class="job-header">
+            <span class="job-title en-only">Beat Saber — PS VR2 Port &amp; Ongoing</span>
+            <span class="job-title cs-only">Beat Saber — port na PS VR2 a další spolupráce</span>
+            <span class="job-duration en-only">~9 months</span>
+            <span class="job-duration cs-only">~9 měsíců</span>
+          </div>
+          <div class="job-desc en-only">Part of the Flying Rat team responsible for the PS VR2 port of the world's best-selling VR game. Later moved to performance optimisations, tool creation, and general bug fixing across the codebase.</div>
+          <div class="job-desc cs-only">Součást týmu zodpovědného za port nejprodávanější VR hry na PS VR2. Následně přechod na výkonnostní optimalizace, tvorbu nástrojů a obecné opravy chyb v kódu.</div>
+          <div class="tags"><span class="tag">Unity</span><span class="tag">C#</span><span class="tag">PS VR2</span><span class="tag en-only">Optimisation</span><span class="tag cs-only">Optimalizace</span></div>
+        </div>
+      </div>
+
+      <div class="job-item">
+        <img src="imgs_en/WrathAgeOfRuin.png" alt="Wrath – Age of Ruin" class="job-thumb">
+        <div class="job-body">
+          <div class="job-header">
+            <span class="job-title">Wrath – Age of Ruin — <span class="en-only">Console Port</span><span class="cs-only">port na konzole</span></span>
+            <span class="job-duration en-only">~7 months</span>
+            <span class="job-duration cs-only">~7 měsíců</span>
+          </div>
+          <div class="job-desc en-only">Ported a boomer shooter from the DarkPlaces engine to Unity, targeting PS4, PS5, Xbox One, Xbox Series X|S, and Nintendo Switch. Responsible for gameplay features, UI implementation, and console-specific bug fixing.</div>
+          <div class="job-desc cs-only">Port boomer shooteru z engine DarkPlaces do Unity pro PS4, PS5, Xbox One, Xbox Series X|S a Nintendo Switch. Implementace herních a UI funkcí, opravy chyb specifických pro konzole.</div>
+          <div class="tags"><span class="tag">Unity</span><span class="tag">C#</span><span class="tag">PS4/PS5</span><span class="tag">Xbox</span><span class="tag">Nintendo Switch</span></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══ NOTABLE PROJECTS ══ -->
+  <section class="section">
+    <div class="section-title">
+      <span class="en-only">Notable Projects</span>
+      <span class="cs-only">Vybrané projekty</span>
+    </div>
+    <div class="project-list">
+
+      <div class="project-row">
+        <div class="project-img-wrap"><img src="imgs_en/SpaceAlertIRL.jpg" alt="Space Alert IRL"></div>
+        <div class="project-body">
+          <div class="project-title">Space Alert IRL</div>
+          <div class="project-meta en-only">C#, Unity · Android · NFC · LAN Multiplayer</div>
+          <div class="project-meta cs-only">C#, Unity · Android · NFC · LAN Multiplayer</div>
+          <div class="project-desc en-only">Cooperative multiplayer mobile game (LAN) inspired by the Space Alert board game. Players physically move between NFC-tagged rooms spread across the play area to operate a spaceship under attack. Built a custom NFC–Unity bridge and published a write-up on the integration.</div>
+          <div class="project-desc cs-only">Kooperativní multiplayerová mobilní hra (LAN) inspirovaná deskovou hrou Space Alert. Hráči se fyzicky přesouvají mezi místnostmi označenými NFC tagy rozmístěnými po herní ploše. Napsal jsem vlastní NFC–Unity most a publikoval návod.</div>
+          <div class="tags"><span class="tag">Unity</span><span class="tag">C#</span><span class="tag">Android</span><span class="tag">NFC</span></div>
+        </div>
+      </div>
+
+      <div class="project-row">
+        <div class="project-img-wrap"><img src="imgs_en/ParkGame_1.png" alt="Park Game"></div>
+        <div class="project-body">
+          <div class="project-title">Park Game</div>
+          <div class="project-meta en-only">C#, Unity · GPS · Team of 5</div>
+          <div class="project-meta cs-only">C#, Unity · GPS · Tým 5 lidí</div>
+          <div class="project-desc en-only">Multiplayer commander-based RTS played in a real park. Players first meet and draw the arena, then command units while their commander position is linked to their real GPS coordinates. Designer, project lead, and programmer.</div>
+          <div class="project-desc cs-only">Multiplayerové commander-based RTS hrané v reálném parku. Hráči se sejdou, nakreslí arénu a pak hrají — pozice velitele odpovídá GPS souřadnicím hráče. Designer, projektový vedoucí a programátor.</div>
+          <div class="tags"><span class="tag">Unity</span><span class="tag">C#</span><span class="tag">GPS</span><span class="tag">Multiplayer</span></div>
+          <div class="mini-gallery">
+            <img src="imgs_en/ParkGame_2.png" alt="Park Game gameplay">
+            <img src="imgs_en/ParkGame_3.png" alt="Park Game map view">
+          </div>
+          <a class="project-link" href="https://youtu.be/xOWQxrlXrCQ" target="_blank">
+            <span class="en-only">Watch trailer ↗</span>
+            <span class="cs-only">Trailer ↗</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="project-row">
+        <div class="project-img-wrap"><img src="imgs_en/GnomeTrouble.png" alt="Gnome Trouble"></div>
+        <div class="project-body">
+          <div class="project-title">Gnome Trouble</div>
+          <div class="project-meta en-only">Unity · GDS Prague Game Jam 2024 · 3rd place / 50 entries</div>
+          <div class="project-meta cs-only">Unity · GDS Prague Game Jam 2024 · 3. místo z 50 her</div>
+          <div class="project-desc en-only">Genre-switching platformer: the first half plays as a 2D Mario-style side-scroller where you throw gnomes off a cliff — then mid-game the perspective and genre switch entirely into a top-down 3D Octopath Traveler-style RPG where you must go apologise to them.</div>
+          <div class="project-desc cs-only">Plošinovka, která se v půlce hry přepne do jiného žánru. První půlka je 2D Mario-style, kde hráč shazuje trpaslíky ze skály — druhá půlka přejde na top-down 3D styl Octopath Traveler, kde musí jít a omluvit se jim.</div>
+          <div class="tags"><span class="tag">Unity</span><span class="tag">Game Jam</span><span class="tag">🥉 3rd Place</span></div>
+          <a class="project-link" href="https://tombuben.itch.io/gnome-trouble" target="_blank">
+            <span class="en-only">Play on itch.io ↗</span>
+            <span class="cs-only">Hrát na itch.io ↗</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══ UNIVERSITY PROJECTS ══ -->
+  <section class="section">
+    <div class="section-title">
+      <span class="en-only">University Projects</span>
+      <span class="cs-only">Universitní projekty</span>
+    </div>
+    <div class="uni-grid">
+
+      <div class="uni-card">
+        <div class="uni-card-imgs">
+          <img src="imgs_en/Battleships2_1.png" alt="BattleShips heatmap 1">
+          <img src="imgs_en/Battleships2_2.png" alt="BattleShips heatmap 2">
+        </div>
+        <div class="uni-body">
+          <div class="uni-title">BattleShips</div>
+          <div class="uni-course en-only">Programming 1 (Python) · Programming 2 (C#, WinForms)</div>
+          <div class="uni-course cs-only">Programování 1 (Python) · Programování 2 (C#, WinForms)</div>
+          <div class="uni-desc en-only">Two versions: a Python console game with adjustable-difficulty AI, then a full C# WinForms version with free-form ship placement and a heatmap-based AI that scores every tile by remaining ship configurations.</div>
+          <div class="uni-desc cs-only">Dvě verze: konzolová Python hra s nastavitelnou AI, a C# WinForms verze s libovolnými tvary lodí a heatmap AI, která hodnotí políčka podle zbývajících lodí.</div>
+          <div class="tags" style="margin-top:8px;"><span class="tag">Python</span><span class="tag">C#</span><span class="tag">WinForms</span></div>
+        </div>
+      </div>
+
+      <div class="uni-card">
+        <img src="imgs_en/PacMan.png" alt="PacMan" class="uni-card-img">
+        <div class="uni-body">
+          <div class="uni-title">PacMan</div>
+          <div class="uni-course en-only">Programming in C++ course</div>
+          <div class="uni-course cs-only">Programování v C++</div>
+          <div class="uni-desc en-only">Custom PacMan with progressive difficulty and authentic ghost behaviours. Because SFML provides only bare-bones rendering, all animation systems and text rendering were written from scratch. Includes a mouse-driven map editor with auto-connecting pipes.</div>
+          <div class="uni-desc cs-only">Vlastní PacMan s narůstající obtížností a autentickým chováním duchů. Protože SFML je velmi základní, bylo potřeba napsat vlastní animace, vykreslování a výpis textu. Obsahuje editor map s automatickým napojením trubek.</div>
+          <div class="tags" style="margin-top:8px;"><span class="tag">C++</span><span class="tag">SFML</span></div>
+        </div>
+      </div>
+
+      <div class="uni-card">
+        <img src="imgs_en/SpaceAlertIRL.jpg" alt="Space Alert IRL" class="uni-card-img">
+        <div class="uni-body">
+          <div class="uni-title">Space Alert IRL</div>
+          <div class="uni-course en-only">Programming in C# · Advanced C# · Annual project</div>
+          <div class="uni-course cs-only">Programování v C# · Pokročilé C# · Ročníkový projekt</div>
+          <div class="uni-desc en-only">Cooperative LAN mobile game for Android inspired by Space Alert. Players move physically between NFC-tagged rooms to operate a spaceship. Custom NFC–Unity integration documented in a public post.</div>
+          <div class="uni-desc cs-only">Kooperativní LAN mobilní hra pro Android inspirovaná Space Alertem. Hráči se fyzicky přesouvají mezi místnostmi s NFC tagy. Vlastní NFC–Unity integrace zdokumentovaná ve veřejném příspěvku.</div>
+          <div class="tags" style="margin-top:8px;"><span class="tag">Unity</span><span class="tag">C#</span><span class="tag">Android</span><span class="tag">NFC</span></div>
+        </div>
+      </div>
+
+      <div class="uni-card">
+        <img src="imgs_en/ParkGame_1.png" alt="Park Game" class="uni-card-img">
+        <div class="uni-body">
+          <div class="uni-title">Park Game</div>
+          <div class="uni-course en-only">Team project · 5 people</div>
+          <div class="uni-course cs-only">Týmový projekt · 5 lidí</div>
+          <div class="uni-desc en-only">Commander-based RTS played in a real park. The commander's in-game position is linked to the player's GPS location. Designer, project lead, and programmer. Came with a full trailer.</div>
+          <div class="uni-desc cs-only">Commander-based RTS hrané v reálném parku — pozice velitele odpovídá GPS souřadnicím. Designer, projektový vedoucí a programátor. Hra má plnohodnotný trailer.</div>
+          <div class="tags" style="margin-top:8px;"><span class="tag">Unity</span><span class="tag">C#</span><span class="tag">GPS</span></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══ GAME JAMS ══ -->
+  <section class="section">
+    <div class="section-title">
+      <span class="en-only">Game Jams — 8 participations</span>
+      <span class="cs-only">Game Jamy — 8 účastí</span>
+    </div>
+    <div class="jam-grid">
+
+      <div class="jam-card">
+        <img src="imgs_en/GnomeTrouble.png" alt="Gnome Trouble">
+        <div class="jam-body">
+          <div class="jam-title">Gnome Trouble</div>
+          <div class="jam-meta">GDS Prague Game Jam 2024 · 🥉 3rd / 50</div>
+          <div class="jam-desc en-only">2D platformer that switches genre to top-down 3D RPG at the midpoint.</div>
+          <div class="jam-desc cs-only">2D plošinovka, která se uprostřed přepne do top-down 3D RPG.</div>
+          <a class="jam-link" href="https://tombuben.itch.io/gnome-trouble" target="_blank">itch.io ↗</a>
+        </div>
+      </div>
+
+      <div class="jam-card">
+        <img src="imgs_en/AntHill.png" alt="AntHill">
+        <div class="jam-body">
+          <div class="jam-title">∆ntHill</div>
+          <div class="jam-meta en-only">LUDUM Dare 2023 · Theme: Harvest</div>
+          <div class="jam-meta cs-only">LUDUM Dare 2023 · Téma: Harvest</div>
+          <div class="jam-desc en-only">Anthill management — deploy scouts and harvesters, upgrade the colony.</div>
+          <div class="jam-desc cs-only">Správa mraveniště — posílej průzkumníky a sběrače, rozšiřuj kolonii.</div>
+          <a class="jam-link" href="https://redcoff.itch.io/anthill" target="_blank">itch.io ↗</a>
+        </div>
+      </div>
+
+      <div class="jam-card">
+        <img src="imgs_en/DwarvesDveldCarefullyAndDiligently.png" alt="The Dwarves">
+        <div class="jam-body">
+          <div class="jam-title">The Dwarves Delved Too Diligently</div>
+          <div class="jam-meta en-only">Spring Game Jam @ Matfyz 2023</div>
+          <div class="jam-meta cs-only">Spring Game Jam @ Matfyz 2023</div>
+          <div class="jam-desc en-only">Grid mining puzzle — regulations pile up after every level.</div>
+          <div class="jam-desc cs-only">Těžební puzzle na mřížce — po každém levelu přibývají nařízení.</div>
+          <a class="jam-link" href="https://redcoff.itch.io/the-dwarves" target="_blank">itch.io ↗</a>
+        </div>
+      </div>
+
+      <div class="jam-card">
+        <img src="imgs_en/ClumsyDwarves.png" alt="Clumsy Dwarves">
+        <div class="jam-body">
+          <div class="jam-title">Clumsy Dwarves</div>
+          <div class="jam-meta en-only">GAMEDEV CUNI JAM 2022 · Theme: YOLO</div>
+          <div class="jam-meta cs-only">GAMEDEV CUNI JAM 2022 · Téma: YOLO</div>
+          <div class="jam-desc en-only">First Unity project. Factory comedy — dwarves die from old age, stupidity, or boxes.</div>
+          <div class="jam-desc cs-only">Mé první Unity. Tovární komedie — trpaslíci umírají stářím, hloupostí nebo bednou.</div>
+          <a class="jam-link" href="https://itch.io/jam/gamehighed-jam-2021/rate/1002139" target="_blank">itch.io ↗</a>
+        </div>
+      </div>
+
+      <div class="jam-card">
+        <img src="imgs_en/BearBreakout.png" alt="Bear Breakout">
+        <div class="jam-body">
+          <div class="jam-title">Bear Breakout: 25D Glass Conundrum</div>
+          <div class="jam-meta en-only">FlyingRat GameJam 2024 · Theme: Fragile</div>
+          <div class="jam-meta cs-only">FlyingRat GameJam 2024 · Téma: Fragile</div>
+          <div class="jam-desc en-only">Local co-op for 2 — carry a fragile glass panel across the level.</div>
+          <div class="jam-desc cs-only">Lokální co-op pro 2 — přeneste skleněný panel přes level bez rozbití.</div>
+          <a class="jam-link" href="https://plhacko.itch.io/bear-breakout-25d-glass-conundrum" target="_blank">itch.io ↗</a>
+        </div>
+      </div>
+
+      <div class="jam-card">
+        <img src="imgs_en/BoldDrive.png" alt="Bold Drive">
+        <div class="jam-body">
+          <div class="jam-title">Bold Drive</div>
+          <div class="jam-meta en-only">GDS Prague Game Jam 2025 · Theme: Fortune favours the bold</div>
+          <div class="jam-meta cs-only">GDS Prague Game Jam 2025 · Téma: Fortune favours the bold</div>
+          <div class="jam-desc en-only">You're a "Bold" driver (wordplay on Bolt taxis) — drive and chat with passengers.</div>
+          <div class="jam-desc cs-only">Jsi řidič „Bold" (slovní hříčka na Bolt) — vezíš zákazníky a chatíš s nimi.</div>
+          <a class="jam-link" href="https://plhacko.itch.io/bold-drive" target="_blank">itch.io ↗</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══ APPS IN DEVELOPMENT ══ -->
+  <section class="section">
+    <div class="section-title">
+      <span class="en-only">Projects in Progress</span>
+      <span class="cs-only">Projekty ve vývoji</span>
+    </div>
+    <div class="app-list">
+
+      <div class="app-item">
+        <img src="imgs_en/VojtovaMetodaDruheGenerace.png" alt="Reflex Locomotion App" class="app-img">
+        <div class="app-body">
+          <div class="app-title en-only">Reflex Locomotion App</div>
+          <div class="app-title cs-only">Aplikace Reflex Locomotion</div>
+          <div class="app-sub en-only">Flutter · Dart · FlutterFlow · ETA 2026</div>
+          <div class="app-sub cs-only">Flutter · Dart · FlutterFlow · Dokončení v roce 2026</div>
+          <div class="app-desc en-only">Medical rehabilitation app for Rehabilitace Karlovy Vary s.r.o., guiding users through the Vojta Method (reflex locomotion therapy). Multi-language support. Built with FlutterFlow for rapid UI development, with full Flutter/Dart export. Design by Vojtěch Pinc.</div>
+          <div class="app-desc cs-only">Rehabilitační aplikace pro Rehabilitace Karlovy Vary s.r.o. zaměřená na Vojtovu metodu reflexní lokomoce. Vícejazyčná podpora. Stavěná ve FlutterFlow s možností exportu do čistého Flutter projektu. Design: Vojtěch Pinc.</div>
+          <div class="tags" style="margin-top:8px;"><span class="tag">Flutter</span><span class="tag">Dart</span><span class="tag">FlutterFlow</span><span class="tag en-only">Medical</span><span class="tag cs-only">Medicína</span></div>
+        </div>
+      </div>
+
+      <div class="app-item">
+        <img src="imgs_en/czech_step_by_step.png" alt="Step by Step App" class="app-img">
+        <div class="app-body">
+          <div class="app-title">Step by Step App</div>
+          <div class="app-sub en-only">Flutter · Dart · FlutterFlow · Early development</div>
+          <div class="app-sub cs-only">Flutter · Dart · FlutterFlow · Raná fáze vývoje</div>
+          <div class="app-desc en-only">Czech language learning app for foreigners, tied to the successful Step by Step textbook series. Same technology stack as the Reflex Locomotion app. Design by Vojtěch Pinc.</div>
+          <div class="app-desc cs-only">Aplikace pro výuku češtiny pro cizince, navázaná na úspěšnou učebnicovou řadu Step by Step. Stejný technologický základ jako Reflex Locomotion app. Design: Vojtěch Pinc.</div>
+          <div class="tags" style="margin-top:8px;"><span class="tag">Flutter</span><span class="tag">Dart</span><span class="tag">FlutterFlow</span></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══ VOLUNTEER ══ -->
+  <section class="section">
+    <div class="section-title">
+      <span class="en-only">Summer Camps &amp; Volunteer Work</span>
+      <span class="cs-only">Tábory a dobrovolnictví</span>
+    </div>
+    <div class="vol-list">
+
+      <div>
+        <div class="vol-title en-only">Summer Camp Lead Organiser — Camp Pecka, YMCA Braník</div>
+        <div class="vol-title cs-only">Hlavní vedoucí tábora Pecka — YMCA Braník</div>
+        <div class="vol-sub en-only">Lead organiser since 2022 · Volunteer since age 15 (2015–present)</div>
+        <div class="vol-sub cs-only">Hlavní vedoucí od 2022 · Vedoucí od 15 let (2015–dosud)</div>
+        <div class="vol-desc en-only">Since age 15 I have volunteered at summer camps and weekly youth meetings. Over the years I prepared countless small games (designing and running something new every Friday), and several larger long-running experiences. Below are the two multi-year board game projects and the large final game of one of our camps.</div>
+        <div class="vol-desc cs-only">Od 15 let se věnuji práci s dětmi na schůzkách a táborech. Každý pátek jsem připravoval novou hru a spolupodílel se na několika větších celoročních projektech. Níže jsou dvě celoroční hry a velká závěrečná táborová hra.</div>
+      </div>
+
+      <div>
+        <div class="vol-title">Legend <span style="font-weight:400;font-size:12px;color:#a8a29e;">· ~2 <span class="en-only">years</span><span class="cs-only">roky</span></span></div>
+        <div class="vol-sub en-only">Ongoing weekly board game experience</div>
+        <div class="vol-sub cs-only">Celoroční hra na schůzkách</div>
+        <div class="vol-desc en-only">Civilisation V-style strategy played on a physical wall map made with a Civilization V map builder. Players earned points at weekly meetings and spent them colonising territory, building cities, raising armies, and collecting rare resource sets. Deliberately designed to create intrigue while keeping direct conflict limited. Ran every Friday for nearly two years.</div>
+        <div class="vol-desc cs-only">Strategická hra na nástěnce s mapou z map builderu Civilizace V. Hráči za body ze schůzek budovali města, rozšiřovali území, stavěli armády a sbírali kolekce vzácných surovin. Designovaná záměrně tak, aby docházelo ke konfliktům, ale omezeně. Hra běžela každý pátek téměř 2 roky.</div>
+        <img src="imgs_en/Legend.png" alt="Legend — the pin-board map" class="vol-img">
+      </div>
+
+      <div>
+        <div class="vol-title">Dune <span style="font-weight:400;font-size:12px;color:#a8a29e;">· ~1 <span class="en-only">year</span><span class="cs-only">rok</span></span></div>
+        <div class="vol-sub en-only">Ongoing weekly board game experience</div>
+        <div class="vol-sub cs-only">Celoroční hra na schůzkách</div>
+        <div class="vol-desc en-only">Inspired by the 1970s Dune board game. Players harvest spice on contested hexagons while a weekly storm destroys everything in its path. Conflict is central — combat is resolved using a system inspired by "878 Vikings: Invasions of England," where troops may choose to flee instead of fighting, saving their lives at the cost of the battle.</div>
+        <div class="vol-desc cs-only">Inspirováno deskovou hrou Duna z 70. let. Hráči těží koření na sporných hexagonech, verbují a přesouvají armády. Každý týden se hýbe bouře a ničí vše ve své cestě. Soubojový systém vychází ze hry „878 Vikings" — jednotky mohou místo útoku utéct.</div>
+        <img src="imgs_en/Dune.png" alt="Dune — the circular board" class="vol-img">
+      </div>
+
+      <div>
+        <div class="vol-title en-only">Prince Caspian — Grand Final Camp Game</div>
+        <div class="vol-title cs-only">Velká závěrečná táborová hra na motivy Prince Kaspiana</div>
+        <div class="vol-sub en-only">Summer camp 2019 · Co-designed with Vojtěch Pinc &amp; Tadeáš Friedrich</div>
+        <div class="vol-sub cs-only">Tábor 2019 · Spolupráce s Vojtěchem Pincem &amp; Tadeášem Friedrichem</div>
+        <div class="vol-desc en-only">Large-scale hex-tile capture game for a full camp. Teams received time-limited task cards gradually released throughout the day — completing them earned captures, defences, or attacks on the shared map. Scoring rewarded formations and encirclements, forcing real-time prioritisation under time pressure. We even stopped issuing cards during lunch — except one card that told the kids to go eat and rest.</div>
+        <div class="vol-desc cs-only">Dobývání hexagonů na mapě pomocí úkolových karet uvolňovaných postupně s omezenou dobou platnosti. Body za formace a obkličování. Týmy musely v reálném čase prioritizovat úkoly. V době oběda jsme přestali vydávat kartičky — až na jednu, na které bylo, ať děti jdou jíst a odpočívat.</div>
+        <img src="imgs_en/SummercampGame.png" alt="Prince Caspian final camp game" class="vol-img">
+      </div>
+
+    </div>
+  </section>
+
+</div><!-- /cv-body -->
+
+<script>
+  function setLang(lang) {
+    document.querySelectorAll('.en-only').forEach(el => el.style.display = lang === 'en' ? '' : 'none');
+    document.querySelectorAll('.cs-only').forEach(el => el.style.display = lang === 'cs' ? '' : 'none');
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    document.getElementById('btn-cs').classList.toggle('active', lang === 'cs');
+    document.documentElement.lang = lang;
+    try { localStorage.setItem('cv-lang', lang); } catch(e) {}
+  }
+
+  // Restore saved language on load
+  (function() {
+    var lang = 'en';
+    try { lang = localStorage.getItem('cv-lang') || 'en'; } catch(e) {}
+    setLang(lang);
+  })();
+</script>
+
+</body>
+</html>
