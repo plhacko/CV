@@ -205,6 +205,13 @@ body {
 #lightbox.open { display: flex; }
 #lightbox img { max-width: 90vw; max-height: 90vh; object-fit: contain; border-radius: 8px; box-shadow: 0 8px 40px rgba(0,0,0,0.5); }
 
+/* ── RECOMMENDATION ─────────────────────────────────── */
+.rec-box { border: 1px solid #e7e5e4; border-radius: 10px; padding: 20px 24px; background: #fff; position: relative; }
+.rec-quote { font-size: 13px; color: #57534e; line-height: 1.75; font-style: italic; }
+.rec-quote::before { content: '\201C'; font-size: 40px; color: #e7e5e4; line-height: 0; vertical-align: -14px; margin-right: 4px; font-style: normal; }
+.rec-author { margin-top: 14px; font-size: 12.5px; font-weight: 700; color: #1c1917; }
+.rec-role { font-size: 12px; color: #b45309; font-weight: 600; margin-top: 1px; }
+
 /* ── PRINT ───────────────────────────────────────────── */
 @media print {
   body { background: #fff; font-size: 11px; }
@@ -386,7 +393,7 @@ body {
         </div>
         <div class="tl-dot"></div>
         <div class="tl-right">
-          <div class="tl-title">Flying Rat Studio <a href="https://www.flying-rat.studio" style="color:#b45309;font-size:12px;font-weight:400;" target="_blank">flying-rat.studio ↗</a></div>
+          <div class="tl-title">Flying Rat Studio <a href="https://www.flying-rat.studio" style="color:#b45309;font-size:12px;font-weight:400;" target="_blank">flying-rat.studio ↗</a> <a href="#recommendation" style="color:#b45309;font-size:12px;font-weight:400;">letter of recommendation ↓</a></div>
           <div class="tl-sub en-only">Technology-focused studio specialising in console porting, optimisation, and advanced feature development.</div>
           <div class="tl-sub cs-only">Technologicky zaměřené studio specializující se na portaci her na konzole, optimalizace a vývoj pokročilých funkcí.</div>
           <div class="job-list">
@@ -683,7 +690,7 @@ body {
     </div>
     <div class="jam-grid">
 
-      <div class="jam-card">
+      <div class="jam-card" style="border-color: #b45309; box-shadow: 0 0 0 1px #b45309, 0 4px 12px rgba(180,83,9,0.15);">
         <img src="imgs_en/GnomeTrouble.png" alt="Gnome Trouble">
         <div class="jam-body">
           <div class="jam-title">Gnome Trouble</div>
@@ -757,6 +764,23 @@ body {
     </div>
   </section>
 
+
+  <!-- ══ RECOMMENDATION ══ -->
+  <section class="section">
+    <div class="section-title">
+      <span>Letter of Recommendation</span>
+    </div>
+    <div id="recommendation" class="rec-box">
+      <div class="rec-quote">I'm happy to recommend Tomáš Plhák, whom I worked with as a Producer/CEO. From the start, Tomáš proved to be a fast learner with a lot of potential. He picked things up quickly, wasn't afraid to ask questions, and consistently showed a genuine interest in improving his skills.<br><br>Beyond his work ethic, Tomáš has great social skills and is simply a nice person to be around. He communicates well, works easily with others, and brings a positive, friendly energy to any team. Having him around made collaboration smoother and more enjoyable. Tomáš has a great gift to bring people together both at office and at the conference.<br><br>I believe Tomáš would be a great addition to any team, both professionally and personally. I wouldn't hesitate to work with him again and can confidently recommend him for future opportunities.</div>
+      <div style="display:flex; justify-content:space-between; align-items:flex-end; margin-top:14px;">
+        <div>
+          <div class="rec-author">Matouš Márai</div>
+          <div class="rec-role">CEO · Flying Rat Studio</div>
+        </div>
+        <img src="imgs_en/FlyingRatStudio_black.webp" alt="Flying Rat Studio" style="height:48px; object-fit:contain;">
+      </div>
+    </div>
+  </section>
 
 </div><!-- /cv-body -->
 
