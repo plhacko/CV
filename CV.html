@@ -26,18 +26,18 @@ body {
 }
 .lang-btn {
   background: none;
-  border: none;
+  border: 1.5px solid #57504a;
   color: #78716c;
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 1px;
   cursor: pointer;
-  padding: 3px 6px;
-  border-radius: 4px;
-  transition: color 0.15s;
+  padding: 3px 9px;
+  border-radius: 999px;
+  transition: color 0.15s, border-color 0.15s;
 }
-.lang-btn:hover { color: #fafaf8; }
-.lang-btn.active { color: #b45309; }
+.lang-btn:hover { color: #fafaf8; border-color: #a8a29e; }
+.lang-btn.active { color: #f5c97a; border-color: #b45309; }
 .lang-sep { color: #44403c; font-size: 12px; }
 
 /* ── HEADER ─────────────────────────────────────────── */
@@ -250,8 +250,8 @@ body {
     </div>
     <div class="header-contact">
       <div class="contact-row">
-        <span>your@email.com</span>
-        <span>+420 000 000 000</span>
+        <a href="mailto:plhacko@gmail.com">plhacko@gmail.com</a>
+        <span>+420 773 288 308</span>
         <span class="en-only">Beroun / Prague, CZ</span>
         <span class="cs-only">Beroun / Praha</span>
       </div>
