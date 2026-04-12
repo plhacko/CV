@@ -94,21 +94,22 @@ body {
 .section-title::after { content: ''; flex: 1; height: 2px; background: #b45309; border-radius: 1px; }
 
 /* ── EDUCATION ───────────────────────────────────────── */
-.edu-list { display: flex; flex-direction: column; gap: 16px; }
-.edu-row { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; flex-wrap: wrap; }
-.edu-title { font-size: 14px; font-weight: 700; color: #1c1917; }
-.edu-date { font-size: 12px; color: #a8a29e; white-space: nowrap; }
-.edu-sub { font-size: 13px; color: #b45309; font-weight: 600; margin-top: 1px; }
+.edu-sub { font-size: 13px; color: #b45309; font-weight: 600; margin-top: 1px; margin-bottom: 6px; }
 .edu-desc { font-size: 13px; color: #57534e; margin-top: 4px; }
 .courses-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px 20px; margin-top: 8px; }
 .course-item { font-size: 12px; color: #57534e; }
 
-/* ── CAREER ──────────────────────────────────────────── */
-.employer { margin-bottom: 6px; }
-.employer-row { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
-.employer-name { font-size: 16px; font-weight: 700; color: #1c1917; }
-.employer-date { font-size: 12px; color: #a8a29e; white-space: nowrap; }
-.employer-desc { font-size: 13px; color: #78716c; margin-bottom: 14px; }
+/* ── TIMELINE (Career & Education) ───────────────────── */
+.timeline { position: relative; }
+.timeline::before { content: ''; position: absolute; left: 74px; top: 6px; bottom: 6px; width: 2px; background: #b45309; border-radius: 1px; opacity: 0.3; }
+.tl-entry { display: flex; position: relative; margin-bottom: 32px; }
+.tl-entry:last-child { margin-bottom: 0; }
+.tl-left { width: 75px; flex-shrink: 0; display: flex; flex-direction: column; align-items: flex-end; padding-right: 20px; padding-top: 2px; }
+.tl-date { font-size: 11px; color: #a8a29e; font-weight: 600; white-space: nowrap; text-align: right; line-height: 1.5; }
+.tl-dot { position: absolute; left: 70px; top: 3px; width: 10px; height: 10px; background: #b45309; border-radius: 50%; border: 2px solid #fafaf8; z-index: 1; }
+.tl-right { flex: 1; padding-left: 20px; }
+.tl-title { font-size: 15px; font-weight: 700; color: #1c1917; margin-bottom: 4px; }
+.tl-sub { font-size: 13px; color: #78716c; margin-bottom: 12px; }
 
 .job-list { display: flex; flex-direction: column; gap: 14px; }
 .job-item { display: flex; gap: 16px; background: #fff; border: 1px solid #e7e5e4; border-radius: 8px; padding: 14px 16px; overflow: hidden; }
@@ -172,8 +173,9 @@ body {
 
 /* ── APPS ────────────────────────────────────────────── */
 .app-list { display: flex; flex-direction: column; gap: 12px; }
-.app-item { display: flex; gap: 18px; background: #fff; border: 1px solid #e7e5e4; border-radius: 8px; padding: 16px 18px; align-items: flex-start; }
-.app-img { width: 90px; height: 90px; object-fit: contain; border-radius: 6px; background: #f5f0ea; flex-shrink: 0; }
+.app-item { display: flex; gap: 16px; background: #fff; border: 1px solid #e7e5e4; border-radius: 8px; padding: 14px 16px; align-items: center; }
+.app-img { width: 100px; height: 140px; flex-shrink: 0; object-fit: contain; display: block; border-radius: 6px; background: #f5f0ea; }
+.app-body { flex: 1; }
 .app-body { flex: 1; }
 .app-title { font-size: 14px; font-weight: 700; color: #1c1917; }
 .app-sub { font-size: 12px; color: #b45309; font-weight: 600; margin-top: 1px; }
@@ -304,142 +306,145 @@ body {
       <span class="cs-only">Kariéra a vzdělání</span>
     </div>
 
-    <div class="employer">
-      <div class="employer-row">
-        <span class="employer-name en-only">Travelling &amp; Independent Development</span>
-        <span class="employer-name cs-only">Cestování a samostatný vývoj</span>
-        <span class="employer-date en-only">2025 – present</span>
-        <span class="employer-date cs-only">2025 – současnost</span>
-      </div>
-      <div class="employer-desc en-only">2 months in Sydney, Australia · 2 months in Thailand — working remotely on two independent app projects.</div>
-      <div class="employer-desc cs-only">2 měsíce v Sydney, Austrálie · 2 měsíce v Thajsku — práce na dvou samostatných aplikačních projektech.</div>
-    </div>
+    <div class="timeline">
 
-    <div class="app-list" style="margin-top:12px;">
-
-      <div class="app-item">
-        <img src="imgs_en/VojtovaMetodaDruheGenerace.png" alt="Reflex Locomotion App" class="app-img">
-        <div class="app-body">
-          <div class="app-title en-only">Reflex Locomotion App <span style="color:#a8a29e;font-weight:400;font-size:12px;">— nearly finished</span></div>
-          <div class="app-title cs-only">Aplikace Reflex Locomotion <span style="color:#a8a29e;font-weight:400;font-size:12px;">— téměř hotovo</span></div>
-          <div class="app-sub en-only">Flutter · Dart · FlutterFlow · ETA 2026</div>
-          <div class="app-sub cs-only">Flutter · Dart · FlutterFlow · Dokončení v roce 2026</div>
-          <div class="app-desc en-only">Medical rehabilitation app for Rehabilitace Karlovy Vary s.r.o., guiding users through the Vojta Method (reflex locomotion therapy). Multi-language support. Built with FlutterFlow for rapid UI development, with full Flutter/Dart export. Design by Vojtěch Pinc.</div>
-          <div class="app-desc cs-only">Rehabilitační aplikace pro Rehabilitace Karlovy Vary s.r.o. zaměřená na Vojtovu metodu reflexní lokomoce. Vícejazyčná podpora. Stavěná ve FlutterFlow s možností exportu do čistého Flutter projektu. Design: Vojtěch Pinc.</div>
-          <div class="tags" style="margin-top:8px;"><span class="tag">Flutter</span><span class="tag">Dart</span><span class="tag">FlutterFlow</span><span class="tag en-only">Medical</span><span class="tag cs-only">Medicína</span></div>
+      <!-- Travel 2025–present -->
+      <div class="tl-entry">
+        <div class="tl-left">
+          <span class="tl-date en-only">present<br>2025</span>
+          <span class="tl-date cs-only">nyní<br>2025</span>
         </div>
-      </div>
-
-      <div class="app-item">
-        <img src="imgs_en/czech_step_by_step.png" alt="Step by Step App" class="app-img">
-        <div class="app-body">
-          <div class="app-title">Step by Step App <span style="color:#a8a29e;font-weight:400;font-size:12px;">— WIP</span></div>
-          <div class="app-sub en-only">Flutter · Dart · FlutterFlow · Early development</div>
-          <div class="app-sub cs-only">Flutter · Dart · FlutterFlow · Raná fáze vývoje</div>
-          <div class="app-desc en-only">Czech language learning app for foreigners, tied to the successful Step by Step textbook series. Same technology stack as the Reflex Locomotion app. Design by Vojtěch Pinc.</div>
-          <div class="app-desc cs-only">Aplikace pro výuku češtiny pro cizince, navázaná na úspěšnou učebnicovou řadu Step by Step. Stejný technologický základ jako Reflex Locomotion app. Design: Vojtěch Pinc.</div>
-          <div class="tags" style="margin-top:8px;"><span class="tag">Flutter</span><span class="tag">Dart</span><span class="tag">FlutterFlow</span></div>
-        </div>
-      </div>
-
-    </div>
-
-    <div class="employer" style="margin-top:20px;">
-      <div class="employer-row">
-        <span class="employer-name">Flying Rat Studio</span>
-        <span class="employer-date">2023 – 2025</span>
-      </div>
-      <div class="employer-desc en-only">
-        Technology-focused studio specialising in console porting, optimisation, and advanced feature development.
-        <a href="https://www.flying-rat.studio" style="color:#b45309;font-size:12px;" target="_blank">flying-rat.studio ↗</a>
-      </div>
-      <div class="employer-desc cs-only">
-        Technologicky zaměřené studio specializující se na portaci her na konzole, optimalizace a vývoj pokročilých funkcí.
-        <a href="https://www.flying-rat.studio" style="color:#b45309;font-size:12px;" target="_blank">flying-rat.studio ↗</a>
-      </div>
-    </div>
-
-    <div class="job-list">
-
-      <div class="job-item">
-        <div class="job-body">
-          <div class="job-header">
-            <span class="job-title en-only">Unannounced Unreal Engine Project</span>
-            <span class="job-title cs-only">Neoznámený projekt v Unreal Engine</span>
-            <span class="job-duration en-only">~10 months</span>
-            <span class="job-duration cs-only">~10 měsíců</span>
+        <div class="tl-dot"></div>
+        <div class="tl-right">
+          <div class="tl-title en-only">Travelling &amp; Independent Development</div>
+          <div class="tl-title cs-only">Cestování a samostatný vývoj</div>
+          <div class="tl-sub en-only">2 months in Sydney, Australia · 2 months in Thailand — working remotely on two independent app projects.</div>
+          <div class="tl-sub cs-only">2 měsíce v Sydney, Austrálie · 2 měsíce v Thajsku — práce na dvou samostatných aplikačních projektech.</div>
+          <div class="app-list">
+            <div class="app-item">
+              <img src="imgs_en/VojtovaMetodaDruheGenerace.png" alt="Reflex Locomotion App" class="app-img">
+              <div class="app-body">
+                <div class="app-title en-only">Reflex Locomotion App <span style="color:#a8a29e;font-weight:400;font-size:12px;">— nearly finished</span></div>
+                <div class="app-title cs-only">Aplikace Reflex Locomotion <span style="color:#a8a29e;font-weight:400;font-size:12px;">— téměř hotovo</span></div>
+                <div class="app-sub en-only">Flutter · Dart · FlutterFlow · ETA 2026</div>
+                <div class="app-sub cs-only">Flutter · Dart · FlutterFlow · Dokončení v roce 2026</div>
+                <div class="app-desc en-only">Medical rehabilitation app for Rehabilitace Karlovy Vary s.r.o., guiding users through the Vojta Method (reflex locomotion therapy). Multi-language support. Built with FlutterFlow for rapid UI development, with full Flutter/Dart export. Design by Vojtěch Pinc.</div>
+                <div class="app-desc cs-only">Rehabilitační aplikace pro Rehabilitace Karlovy Vary s.r.o. zaměřená na Vojtovu metodu reflexní lokomoce. Vícejazyčná podpora. Stavěná ve FlutterFlow s možností exportu do čistého Flutter projektu. Design: Vojtěch Pinc.</div>
+                <div class="tags" style="margin-top:8px;"><span class="tag">Flutter</span><span class="tag">Dart</span><span class="tag">FlutterFlow</span><span class="tag en-only">Medical</span><span class="tag cs-only">Medicína</span></div>
+              </div>
+            </div>
+            <div class="app-item">
+              <img src="imgs_en/czech_step_by_step.png" alt="Step by Step App" class="app-img">
+              <div class="app-body">
+                <div class="app-title">Step by Step App <span style="color:#a8a29e;font-weight:400;font-size:12px;">— WIP</span></div>
+                <div class="app-sub en-only">Flutter · Dart · FlutterFlow · Early development</div>
+                <div class="app-sub cs-only">Flutter · Dart · FlutterFlow · Raná fáze vývoje</div>
+                <div class="app-desc en-only">Czech language learning app for foreigners, tied to the successful Step by Step textbook series. Same technology stack as the Reflex Locomotion app. Design by Vojtěch Pinc.</div>
+                <div class="app-desc cs-only">Aplikace pro výuku češtiny pro cizince, navázaná na úspěšnou učebnicovou řadu Step by Step. Stejný technologický základ jako Reflex Locomotion app. Design: Vojtěch Pinc.</div>
+                <div class="tags" style="margin-top:8px;"><span class="tag">Flutter</span><span class="tag">Dart</span><span class="tag">FlutterFlow</span></div>
+              </div>
+            </div>
           </div>
-          <div class="job-desc en-only">Internal studio game built in Unreal Engine. Implemented gameplay features in C++ and Blueprints, authored behaviour trees, integrated audio (SFX hooks), and performed general debugging.</div>
-          <div class="job-desc cs-only">Interní projekt studia v Unreal Engine. Implementace herních mechanik v C++ a Blueprintech, tvorba stromů chování (Behaviour Trees), integrace zvukových efektů a ladění chyb.</div>
-          <div class="tags"><span class="tag">Unreal Engine</span><span class="tag">C++</span><span class="tag">Blueprints</span><span class="tag">Behaviour Trees</span></div>
         </div>
       </div>
 
-      <div class="job-item">
-        <img src="imgs_en/BeatSaber.png" alt="Beat Saber" class="job-thumb">
-        <div class="job-body">
-          <div class="job-header">
-            <span class="job-title en-only">Beat Saber — PS VR2 Port &amp; Ongoing</span>
-            <span class="job-title cs-only">Beat Saber — port na PS VR2 a další spolupráce</span>
-            <span class="job-duration en-only">~9 months</span>
-            <span class="job-duration cs-only">~9 měsíců</span>
+      <!-- Flying Rat Studio 2023–2025 -->
+      <div class="tl-entry">
+        <div class="tl-left">
+          <span class="tl-date">2025<br>2023</span>
+        </div>
+        <div class="tl-dot"></div>
+        <div class="tl-right">
+          <div class="tl-title">Flying Rat Studio <a href="https://www.flying-rat.studio" style="color:#b45309;font-size:12px;font-weight:400;" target="_blank">flying-rat.studio ↗</a></div>
+          <div class="tl-sub en-only">Technology-focused studio specialising in console porting, optimisation, and advanced feature development.</div>
+          <div class="tl-sub cs-only">Technologicky zaměřené studio specializující se na portaci her na konzole, optimalizace a vývoj pokročilých funkcí.</div>
+          <div class="job-list">
+            <div class="job-item">
+              <img src="imgs_en/FlyingRatStudio.webp" alt="Flying Rat Studio" class="job-thumb" style="background:#000;object-fit:contain;">
+              <div class="job-body">
+                <div class="job-header">
+                  <span class="job-title en-only">Unannounced Unreal Engine Project</span>
+                  <span class="job-title cs-only">Neoznámený projekt v Unreal Engine</span>
+                  <span class="job-duration en-only">~10 months</span>
+                  <span class="job-duration cs-only">~10 měsíců</span>
+                </div>
+                <div class="job-desc en-only">Internal studio game built in Unreal Engine. Implemented gameplay features in C++ and Blueprints, authored behaviour trees, integrated audio (SFX hooks), and performed general debugging.</div>
+                <div class="job-desc cs-only">Interní projekt studia v Unreal Engine. Implementace herních mechanik v C++ a Blueprintech, tvorba stromů chování (Behaviour Trees), integrace zvukových efektů a ladění chyb.</div>
+                <div class="tags"><span class="tag">Unreal Engine</span><span class="tag">C++</span><span class="tag">Blueprints</span><span class="tag">Behaviour Trees</span></div>
+              </div>
+            </div>
+            <div class="job-item">
+              <img src="imgs_en/BeatSaber.png" alt="Beat Saber" class="job-thumb">
+              <div class="job-body">
+                <div class="job-header">
+                  <span class="job-title en-only">Beat Saber — PS VR2 Port &amp; Ongoing</span>
+                  <span class="job-title cs-only">Beat Saber — port na PS VR2 a další spolupráce</span>
+                  <span class="job-duration en-only">~9 months</span>
+                  <span class="job-duration cs-only">~9 měsíců</span>
+                </div>
+                <div class="job-desc en-only">Part of the Flying Rat team responsible for the PS VR2 port of the world's best-selling VR game. Later moved to performance optimisations, tool creation, and general bug fixing across the codebase.</div>
+                <div class="job-desc cs-only">Součást týmu zodpovědného za port nejprodávanější VR hry na PS VR2. Následně přechod na výkonnostní optimalizace, tvorbu nástrojů a obecné opravy chyb v kódu.</div>
+                <div class="tags"><span class="tag">Unity</span><span class="tag">C#</span><span class="tag">PS VR2</span><span class="tag en-only">Optimisation</span><span class="tag cs-only">Optimalizace</span></div>
+              </div>
+            </div>
+            <div class="job-item">
+              <img src="imgs_en/WrathAgeOfRuin.png" alt="Wrath – Age of Ruin" class="job-thumb">
+              <div class="job-body">
+                <div class="job-header">
+                  <span class="job-title">Wrath – Age of Ruin — <span class="en-only">Console Port</span><span class="cs-only">port na konzole</span></span>
+                  <span class="job-duration en-only">~7 months</span>
+                  <span class="job-duration cs-only">~7 měsíců</span>
+                </div>
+                <div class="job-desc en-only">Ported a boomer shooter from the DarkPlaces engine to Unity, targeting PS4, PS5, Xbox One, Xbox Series X|S, and Nintendo Switch. Responsible for gameplay features, UI implementation, and console-specific bug fixing.</div>
+                <div class="job-desc cs-only">Port boomer shooteru z engine DarkPlaces do Unity pro PS4, PS5, Xbox One, Xbox Series X|S a Nintendo Switch. Implementace herních a UI funkcí, opravy chyb specifických pro konzole.</div>
+                <div class="tags"><span class="tag">Unity</span><span class="tag">C#</span><span class="tag">PS4/PS5</span><span class="tag">Xbox</span><span class="tag">Nintendo Switch</span></div>
+              </div>
+            </div>
           </div>
-          <div class="job-desc en-only">Part of the Flying Rat team responsible for the PS VR2 port of the world's best-selling VR game. Later moved to performance optimisations, tool creation, and general bug fixing across the codebase.</div>
-          <div class="job-desc cs-only">Součást týmu zodpovědného za port nejprodávanější VR hry na PS VR2. Následně přechod na výkonnostní optimalizace, tvorbu nástrojů a obecné opravy chyb v kódu.</div>
-          <div class="tags"><span class="tag">Unity</span><span class="tag">C#</span><span class="tag">PS VR2</span><span class="tag en-only">Optimisation</span><span class="tag cs-only">Optimalizace</span></div>
         </div>
       </div>
 
-      <div class="job-item">
-        <img src="imgs_en/WrathAgeOfRuin.png" alt="Wrath – Age of Ruin" class="job-thumb">
-        <div class="job-body">
-          <div class="job-header">
-            <span class="job-title">Wrath – Age of Ruin — <span class="en-only">Console Port</span><span class="cs-only">port na konzole</span></span>
-            <span class="job-duration en-only">~7 months</span>
-            <span class="job-duration cs-only">~7 měsíců</span>
+      <!-- Charles University 2019–2023 -->
+      <div class="tl-entry">
+        <div class="tl-left">
+          <span class="tl-date">2023<br>2019</span>
+        </div>
+        <div class="tl-dot"></div>
+        <div class="tl-right">
+          <div class="tl-title en-only">Charles University — Faculty of Mathematics and Physics</div>
+          <div class="tl-title cs-only">Matematicko-fyzikální fakulta Univerzity Karlovy</div>
+          <div class="edu-sub en-only">BSc Computer Science · Game Development track · <span style="color:#a8a29e;">Unfinished</span></div>
+          <div class="edu-sub cs-only">Bc. Informatika – Vývoj počítačových her · <span style="color:#a8a29e;">Nedokončeno</span></div>
+          <div class="edu-desc en-only">Relevant courses:</div>
+          <div class="edu-desc cs-only">Výběr absolvovaných předmětů:</div>
+          <div class="courses-grid">
+            <div class="course-item en-only">Programming 1 (Python)</div>          <div class="course-item cs-only">Programování 1 (Python)</div>
+            <div class="course-item en-only">Programming 2 (C#)</div>              <div class="course-item cs-only">Programování 2 (C#)</div>
+            <div class="course-item en-only">Programming in C#</div>               <div class="course-item cs-only">Programování v C#</div>
+            <div class="course-item en-only">Advanced Programming in C#</div>     <div class="course-item cs-only">Pokročilé programování v C#</div>
+            <div class="course-item en-only">Programming in C++</div>              <div class="course-item cs-only">Programování v C++</div>
+            <div class="course-item en-only">Advanced Programming in C++</div>    <div class="course-item cs-only">Pokročilé programování v C++</div>
+            <div class="course-item en-only">Intro to Game Development (Unity)</div><div class="course-item cs-only">Základy vývoje počítačových her (Unity)</div>
+            <div class="course-item en-only">Game Mechanics Programming (Godot)</div><div class="course-item cs-only">Programování herních mechanik (Godot)</div>
+            <div class="course-item en-only">Introduction to Game Design</div>    <div class="course-item cs-only">Úvod do herního designu</div>
+            <div class="course-item en-only">Computer Graphics Fundamentals</div> <div class="course-item cs-only">Základy počítačové grafiky</div>
+            <div class="course-item en-only">Algorithms &amp; Data Structures 1 &amp; 2</div><div class="course-item cs-only">Algoritmy a datové struktury 1 &amp; 2</div>
+            <div class="course-item en-only">Practical Game Jam course ×4</div>   <div class="course-item cs-only">Praktikum z vývoje her (Game Jam) ×4</div>
           </div>
-          <div class="job-desc en-only">Ported a boomer shooter from the DarkPlaces engine to Unity, targeting PS4, PS5, Xbox One, Xbox Series X|S, and Nintendo Switch. Responsible for gameplay features, UI implementation, and console-specific bug fixing.</div>
-          <div class="job-desc cs-only">Port boomer shooteru z engine DarkPlaces do Unity pro PS4, PS5, Xbox One, Xbox Series X|S a Nintendo Switch. Implementace herních a UI funkcí, opravy chyb specifických pro konzole.</div>
-          <div class="tags"><span class="tag">Unity</span><span class="tag">C#</span><span class="tag">PS4/PS5</span><span class="tag">Xbox</span><span class="tag">Nintendo Switch</span></div>
         </div>
       </div>
 
-    </div>
-
-    <div class="edu-list" style="margin-top:20px;">
-
-      <div>
-        <div class="edu-row">
-          <span class="edu-title en-only">Charles University — Faculty of Mathematics and Physics</span>
-          <span class="edu-title cs-only">Matematicko-fyzikální fakulta Univerzity Karlovy</span>
-          <span class="edu-date">2019 – 2023</span>
+      <!-- Gymnázium 2011–2019 -->
+      <div class="tl-entry">
+        <div class="tl-left">
+          <span class="tl-date">2019<br>2011</span>
         </div>
-        <div class="edu-sub en-only">BSc Computer Science · Game Development track · <span style="color:#a8a29e;">Unfinished</span></div>
-        <div class="edu-sub cs-only">Bc. Informatika – Vývoj počítačových her · <span style="color:#a8a29e;">Nedokončeno</span></div>
-        <div class="edu-desc en-only">Relevant courses:</div>
-        <div class="edu-desc cs-only">Výběr absolvovaných předmětů:</div>
-        <div class="courses-grid">
-          <div class="course-item en-only">Programming 1 (Python)</div>          <div class="course-item cs-only">Programování 1 (Python)</div>
-          <div class="course-item en-only">Programming 2 (C#)</div>              <div class="course-item cs-only">Programování 2 (C#)</div>
-          <div class="course-item en-only">Programming in C#</div>               <div class="course-item cs-only">Programování v C#</div>
-          <div class="course-item en-only">Advanced Programming in C#</div>     <div class="course-item cs-only">Pokročilé programování v C#</div>
-          <div class="course-item en-only">Programming in C++</div>              <div class="course-item cs-only">Programování v C++</div>
-          <div class="course-item en-only">Advanced Programming in C++</div>    <div class="course-item cs-only">Pokročilé programování v C++</div>
-          <div class="course-item en-only">Intro to Game Development (Unity)</div><div class="course-item cs-only">Základy vývoje počítačových her (Unity)</div>
-          <div class="course-item en-only">Game Mechanics Programming (Godot)</div><div class="course-item cs-only">Programování herních mechanik (Godot)</div>
-          <div class="course-item en-only">Introduction to Game Design</div>    <div class="course-item cs-only">Úvod do herního designu</div>
-          <div class="course-item en-only">Computer Graphics Fundamentals</div> <div class="course-item cs-only">Základy počítačové grafiky</div>
-          <div class="course-item en-only">Algorithms &amp; Data Structures 1 &amp; 2</div><div class="course-item cs-only">Algoritmy a datové struktury 1 &amp; 2</div>
-          <div class="course-item en-only">Practical Game Jam course ×4</div>   <div class="course-item cs-only">Praktikum z vývoje her (Game Jam) ×4</div>
+        <div class="tl-dot"></div>
+        <div class="tl-right">
+          <div class="tl-title">Gymnázium Joachima Barranda, Beroun</div>
+          <div class="edu-sub en-only">Secondary school · Maturita exam</div>
+          <div class="edu-sub cs-only">Maturita: Matematika (státní &amp; školní), Matematika+, Informatika, Český jazyk</div>
         </div>
-      </div>
-
-      <div>
-        <div class="edu-row">
-          <span class="edu-title">Gymnázium Joachima Barranda, Beroun</span>
-          <span class="edu-date">2011 – 2019</span>
-        </div>
-        <div class="edu-sub cs-only">Maturita: Matematika (státní &amp; školní), Matematika+, Informatika, Český jazyk</div>
       </div>
 
     </div>
