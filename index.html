@@ -190,7 +190,9 @@ body {
 .job-chevron, .app-chevron { flex-shrink: 0; align-self: flex-start; color: #b45309; font-size: 10px; opacity: 0.5; transition: transform 0.5s ease-in-out, opacity 0.3s ease-in-out; user-select: none; padding: 16px; margin: -13px -16px -16px -16px; }
 .job-item.open .job-chevron, .app-item.open .app-chevron { transform: rotate(90deg); opacity: 1; }
 .battleships-box { max-height: 90px; overflow: hidden; transition: max-height 0.4s ease-in-out; }
-.job-item.open .battleships-box { max-height: 265px; }
+.job-item.open .battleships-box { max-height: 175px; }
+.gameplay-box { max-height: 90px; overflow: hidden; transition: max-height 0.4s ease-in-out; flex-shrink: 0; border-radius: 5px; }
+.job-item.open .gameplay-box { max-height: 265px; }
 .job-expand, .app-expand { padding-top: 10px; }
 .job-expand-gallery { display: flex; gap: 6px; margin-top: 10px; }
 .job-expand-gallery img { flex: 1; height: 140px; object-fit: cover; border-radius: 5px; }
@@ -251,7 +253,7 @@ body {
   [data-default-open] > .job-body > .job-collapsible,
   [data-default-open] > .app-collapsible,
   [data-default-open] > .app-body > .app-collapsible { max-height: none !important; overflow: visible !important; }
-  [data-default-open] .battleships-box { max-height: none !important; }
+  [data-default-open] .battleships-box, [data-default-open] .gameplay-box { max-height: none !important; }
   [data-default-open] .job-thumb, [data-default-open] .app-img { height: auto !important; }
   .job-item:hover, .app-item:hover { transform: none; box-shadow: none; border-color: #e7e5e4; }
 }
@@ -461,7 +463,7 @@ body {
               <span class="job-chevron">▶</span>
             </div>
             <div class="job-item" data-default-open>
-              <div class="battleships-box" style="width:150px;flex-shrink:0;border-radius:5px;">
+              <div class="gameplay-box" style="width:150px;">
                 <img src="images/BeatSaber.png" alt="Beat Saber" style="width:150px;height:90px;object-fit:cover;display:block;border-radius:5px 5px 0 0;">
                 <img src="images/BeatSaber_gameplay2.jpg" alt="Beat Saber gameplay 2" style="width:150px;height:84px;object-fit:cover;display:block;margin-top:3px;">
                 <img src="images/BeatSaber_gameplay.jpg" alt="Beat Saber gameplay" style="width:150px;height:84px;object-fit:cover;display:block;margin-top:3px;">
@@ -487,7 +489,7 @@ body {
               <span class="job-chevron">▶</span>
             </div>
             <div class="job-item" data-default-open>
-              <div class="battleships-box" style="width:150px;flex-shrink:0;border-radius:5px;">
+              <div class="gameplay-box" style="width:150px;">
                 <img src="images/WrathAgeOfRuin.png" alt="Wrath – Age of Ruin" style="width:150px;height:90px;object-fit:cover;display:block;border-radius:5px 5px 0 0;">
                 <img src="images/WrathAgeOfRuin_gameplay2.jpg" alt="Wrath gameplay 2" style="width:150px;height:84px;object-fit:cover;display:block;margin-top:3px;">
                 <img src="images/WrathAgeOfRuin_gameplay.jpg" alt="Wrath gameplay" style="width:150px;height:84px;object-fit:cover;display:block;margin-top:3px;">
