@@ -213,8 +213,10 @@ body {
 /* ── RECOMMENDATION ─────────────────────────────────── */
 .rec-box { border: 1px solid #e7e5e4; border-radius: 10px; padding: 20px 24px; background: #fff; position: relative; }
 .rec-quote { font-size: 13px; color: #57534e; line-height: 1.75; font-style: italic; }
-.rec-quote::before { content: '\201C'; font-size: 40px; color: #e7e5e4; line-height: 0; vertical-align: -14px; margin-right: 4px; font-style: normal; }
-.rec-quote::after { content: '\201D'; font-size: 40px; color: #e7e5e4; line-height: 0; vertical-align: -14px; margin-left: 4px; font-style: normal; }
+.rec-quote p { margin: 0; }
+.rec-quote p + p { margin-top: 1.75em; }
+.rec-quote p:first-child::before { content: '\201C'; font-size: 40px; color: #e7e5e4; line-height: 0; vertical-align: -14px; margin-right: 4px; font-style: normal; }
+.rec-quote p:last-child::after { content: '\201D'; font-size: 40px; color: #e7e5e4; line-height: 0; vertical-align: -14px; margin-left: 4px; font-style: normal; }
 .rec-author { margin-top: 14px; font-size: 12.5px; font-weight: 700; color: #1c1917; }
 .rec-role { font-size: 12px; color: #b45309; font-weight: 600; margin-top: 1px; }
 
@@ -227,6 +229,17 @@ body {
   .lang-toggle { display: none; }
   @page { margin: 0; size: A4; }
   .project-row, .job-item, .jam-card, .app-item, .uni-card { break-inside: avoid; }
+  #flying-rat-entry, #uni-entry, #gymnazium-entry, #gamejams-section { break-before: page; }
+  #recommendation-section { padding-top: 8px; }
+  #flying-rat-thumb { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .rec-quote p + p { margin-top: 0.5em; }
+  [data-default-open] > .job-collapsible,
+  [data-default-open] > .job-body > .job-collapsible,
+  [data-default-open] > .app-collapsible,
+  [data-default-open] > .app-body > .app-collapsible { max-height: none !important; overflow: visible !important; }
+  [data-default-open] .battleships-box { max-height: none !important; }
+  [data-default-open] .job-thumb, [data-default-open] .app-img { height: auto !important; }
+  .job-item:hover, .app-item:hover { transform: none; box-shadow: none; border-color: #e7e5e4; }
 }
 
 @media (max-width: 680px) {
@@ -396,7 +409,7 @@ body {
       </div>
 
       <!-- Flying Rat Studio 2023–2025 -->
-      <div class="tl-entry">
+      <div class="tl-entry" id="flying-rat-entry">
         <div class="tl-left">
           <span class="tl-date">2025<br>2023</span>
         </div>
@@ -406,8 +419,8 @@ body {
           <div class="tl-sub en-only">Technology-focused studio specialising in <b>console porting</b>, <b>optimisation</b>, and <b>advanced feature development</b>.</div>
           <div class="tl-sub cs-only">Technologicky zaměřené studio specializující se na <b>portaci her na konzole</b>, <b>optimalizace</b> a <b>vývoj pokročilých funkcí</b>.</div>
           <div class="job-list">
-            <div class="job-item">
-              <img src="images/FlyingRatStudio.webp" alt="Flying Rat Studio" class="job-thumb" style="background:#000;object-fit:contain;">
+            <div class="job-item" data-default-open>
+              <img src="images/FlyingRatStudio.webp" alt="Flying Rat Studio" class="job-thumb" id="flying-rat-thumb" style="background:#000;object-fit:contain;">
               <div class="job-body">
                 <div class="job-header">
                   <span class="job-title en-only">Unannounced Unreal Engine Project</span>
@@ -427,7 +440,7 @@ body {
               </div>
               <span class="job-chevron">▶</span>
             </div>
-            <div class="job-item">
+            <div class="job-item" data-default-open>
               <img src="images/BeatSaber.png" alt="Beat Saber" class="job-thumb">
               <div class="job-body">
                 <div class="job-header">
@@ -449,7 +462,7 @@ body {
               </div>
               <span class="job-chevron">▶</span>
             </div>
-            <div class="job-item">
+            <div class="job-item" data-default-open>
               <img src="images/WrathAgeOfRuin.png" alt="Wrath – Age of Ruin" class="job-thumb">
               <div class="job-body">
                 <div class="job-header">
@@ -475,7 +488,7 @@ body {
       </div>
 
       <!-- Charles University 2019–2023 -->
-      <div class="tl-entry">
+      <div class="tl-entry" id="uni-entry">
         <div class="tl-left">
           <span class="tl-date">2023<br>2019</span>
         </div>
@@ -505,7 +518,7 @@ body {
           <div class="edu-desc cs-only" style="margin-top:14px;">Projekty:</div>
           <div class="job-list" style="margin-top:8px;">
 
-            <div class="job-item">
+            <div class="job-item" data-default-open>
               <img src="images/ParkGame_3.png" alt="Park Game" class="job-thumb" style="object-fit:contain;background:#f5f0ea;height:140px;">
               <div class="job-body">
                 <div class="job-header">
@@ -536,7 +549,7 @@ body {
               <span class="job-chevron">▶</span>
             </div>
 
-            <div class="job-item">
+            <div class="job-item" data-default-open>
               <img src="images/SpaceAlertIRL.jpg" alt="Space Alert IRL" class="job-thumb" style="object-fit:contain;background:#f5f0ea;height:140px;">
               <div class="job-body">
                 <div class="job-header">
@@ -557,7 +570,7 @@ body {
               <span class="job-chevron">▶</span>
             </div>
 
-            <div class="job-item">
+            <div class="job-item" data-default-open>
               <img src="images/PacMan.png" alt="PacMan" class="job-thumb">
               <div class="job-body">
                 <div class="job-header">
@@ -578,7 +591,7 @@ body {
               <span class="job-chevron">▶</span>
             </div>
 
-            <div class="job-item">
+            <div class="job-item" data-default-open>
               <div class="battleships-box" style="width:150px;flex-shrink:0;border-radius:5px;background:#f5f0ea;">
                 <img src="images/Battleships2_1.png" alt="BattleShips" style="width:150px;height:90px;object-fit:contain;display:block;">
                 <img src="images/Battleships2_2.png" alt="BattleShips second view" style="width:150px;object-fit:contain;display:block;">
@@ -608,7 +621,7 @@ body {
       </div>
 
       <!-- Gymnázium 2011–2019 -->
-      <div class="tl-entry">
+      <div class="tl-entry" id="gymnazium-entry">
         <div class="tl-left">
           <span class="tl-date">2019<br>2011</span>
         </div>
@@ -699,7 +712,7 @@ body {
   </section>
 
   <!-- ══ GAME JAMS ══ -->
-  <section class="section">
+  <section class="section" id="gamejams-section">
     <div class="section-title">
       <span class="en-only">Game Jams — 8 participations</span>
       <span class="cs-only">Game Jamy — 8 účastí</span>
@@ -783,12 +796,12 @@ body {
 
 
   <!-- ══ RECOMMENDATION ══ -->
-  <section class="section">
+  <section class="section" id="recommendation-section">
     <div class="section-title">
       <span>Letter of Recommendation</span>
     </div>
     <div id="recommendation" class="rec-box">
-      <div class="rec-quote">I'm happy to recommend Tomáš Plhák, whom I worked with as a Producer/CEO. From the start, Tomáš proved to be a fast learner with a lot of potential. He picked things up quickly, wasn't afraid to ask questions, and consistently showed a genuine interest in improving his skills.<br><br>Beyond his work ethic, Tomáš has great social skills and is simply a nice person to be around. He communicates well, works easily with others, and brings a positive, friendly energy to any team. Having him around made collaboration smoother and more enjoyable. Tomáš has a great gift to bring people together both at office and at the conference.<br><br>I believe Tomáš would be a great addition to any team, both professionally and personally. I wouldn't hesitate to work with him again and can confidently recommend him for future opportunities.</div>
+      <div class="rec-quote"><p>I'm happy to recommend Tomáš Plhák, whom I worked with as a Producer/CEO. From the start, Tomáš proved to be a fast learner with a lot of potential. He picked things up quickly, wasn't afraid to ask questions, and consistently showed a genuine interest in improving his skills.</p><p>Beyond his work ethic, Tomáš has great social skills and is simply a nice person to be around. He communicates well, works easily with others, and brings a positive, friendly energy to any team. Having him around made collaboration smoother and more enjoyable. Tomáš has a great gift to bring people together both at office and at the conference.</p><p>I believe Tomáš would be a great addition to any team, both professionally and personally. I wouldn't hesitate to work with him again and can confidently recommend him for future opportunities.</p></div>
       <div style="display:flex; justify-content:space-between; align-items:flex-end; margin-top:14px;">
         <div>
           <div class="rec-author">Matouš Márai</div>
@@ -818,6 +831,7 @@ body {
     try { lang = localStorage.getItem('cv-lang') || 'en'; } catch(e) {}
     setLang(lang);
   })();
+
 
   function animateImgOpen(img) {
     if (!img || !img.naturalWidth) return;
