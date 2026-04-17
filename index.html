@@ -190,7 +190,7 @@ body {
 .job-chevron, .app-chevron { flex-shrink: 0; align-self: flex-start; color: #b45309; font-size: 10px; opacity: 0.5; transition: transform 0.5s ease-in-out, opacity 0.3s ease-in-out; user-select: none; padding: 16px; margin: -13px -16px -16px -16px; }
 .job-item.open .job-chevron, .app-item.open .app-chevron { transform: rotate(90deg); opacity: 1; }
 .battleships-box { max-height: 90px; overflow: hidden; transition: max-height 0.4s ease-in-out; }
-.job-item.open .battleships-box { max-height: 175px; }
+.job-item.open .battleships-box { max-height: 265px; }
 .job-expand, .app-expand { padding-top: 10px; }
 .job-expand-gallery { display: flex; gap: 6px; margin-top: 10px; }
 .job-expand-gallery img { flex: 1; height: 140px; object-fit: cover; border-radius: 5px; }
@@ -364,8 +364,8 @@ body {
         <div class="tl-right">
           <div class="tl-title en-only">Travelling &amp; Independent Development</div>
           <div class="tl-title cs-only">Cestování a samostatný vývoj</div>
-          <div class="tl-sub en-only"><b>2 months in Sydney, Australia <img src="https://flagcdn.com/au.svg" alt="🇦🇺" style="vertical-align:middle;margin-bottom:2px;height:13px;width:20px;object-fit:cover;" onerror="this.outerHTML='🇦🇺'"></b> · <b>2 months in Thailand <img src="https://flagcdn.com/th.svg" alt="🇹🇭" style="vertical-align:middle;margin-bottom:2px;height:13px;width:20px;object-fit:cover;" onerror="this.outerHTML='🇹🇭'"></b> — working remotely on <b>two independent app projects</b>.</div>
-          <div class="tl-sub cs-only"><b>2 měsíce v Sydney, Austrálie <img src="https://flagcdn.com/au.svg" alt="🇦🇺" style="vertical-align:middle;margin-bottom:2px;height:13px;width:20px;object-fit:cover;" onerror="this.outerHTML='🇦🇺'"></b> · <b>2 měsíce v Thajsku <img src="https://flagcdn.com/th.svg" alt="🇹🇭" style="vertical-align:middle;margin-bottom:2px;height:13px;width:20px;object-fit:cover;" onerror="this.outerHTML='🇹🇭'"></b> — práce na <b>dvou samostatných aplikačních projektech</b>.</div>
+          <div class="tl-sub en-only"><b>2 months in Sydney, Australia <img src="images/flag_au.svg" alt="🇦🇺" style="vertical-align:middle;margin-bottom:2px;height:13px;width:20px;object-fit:cover;" onerror="this.outerHTML='🇦🇺'"></b> · <b>2 months in Thailand <img src="images/flag_th.svg" alt="🇹🇭" style="vertical-align:middle;margin-bottom:2px;height:13px;width:20px;object-fit:cover;" onerror="this.outerHTML='🇹🇭'"></b> — working remotely on <b>two independent app projects</b>.</div>
+          <div class="tl-sub cs-only"><b>2 měsíce v Sydney, Austrálie <img src="images/flag_au.svg" alt="🇦🇺" style="vertical-align:middle;margin-bottom:2px;height:13px;width:20px;object-fit:cover;" onerror="this.outerHTML='🇦🇺'"></b> · <b>2 měsíce v Thajsku <img src="images/flag_th.svg" alt="🇹🇭" style="vertical-align:middle;margin-bottom:2px;height:13px;width:20px;object-fit:cover;" onerror="this.outerHTML='🇹🇭'"></b> — práce na <b>dvou samostatných aplikačních projektech</b>.</div>
           <div class="app-list">
             <div class="app-item">
               <img src="images/czech_step_by_step.png" alt="Step by Step App" class="app-img">
@@ -441,7 +441,11 @@ body {
               <span class="job-chevron">▶</span>
             </div>
             <div class="job-item" data-default-open>
-              <img src="images/BeatSaber.png" alt="Beat Saber" class="job-thumb">
+              <div class="battleships-box" style="width:150px;flex-shrink:0;border-radius:5px;">
+                <img src="images/BeatSaber.png" alt="Beat Saber" style="width:150px;height:90px;object-fit:cover;display:block;border-radius:5px 5px 0 0;">
+                <img src="images/BeatSaber_gameplay2.jpg" alt="Beat Saber gameplay 2" style="width:150px;height:84px;object-fit:cover;display:block;margin-top:3px;">
+                <img src="images/BeatSaber_gameplay.jpg" alt="Beat Saber gameplay" style="width:150px;height:84px;object-fit:cover;display:block;margin-top:3px;">
+              </div>
               <div class="job-body">
                 <div class="job-header">
                   <span class="job-title en-only">Beat Saber — PS VR2 Port &amp; Ongoing</span>
@@ -463,7 +467,11 @@ body {
               <span class="job-chevron">▶</span>
             </div>
             <div class="job-item" data-default-open>
-              <img src="images/WrathAgeOfRuin.png" alt="Wrath – Age of Ruin" class="job-thumb">
+              <div class="battleships-box" style="width:150px;flex-shrink:0;border-radius:5px;">
+                <img src="images/WrathAgeOfRuin.png" alt="Wrath – Age of Ruin" style="width:150px;height:90px;object-fit:cover;display:block;border-radius:5px 5px 0 0;">
+                <img src="images/WrathAgeOfRuin_gameplay2.jpg" alt="Wrath gameplay 2" style="width:150px;height:84px;object-fit:cover;display:block;margin-top:3px;">
+                <img src="images/WrathAgeOfRuin_gameplay.jpg" alt="Wrath gameplay" style="width:150px;height:84px;object-fit:cover;display:block;margin-top:3px;">
+              </div>
               <div class="job-body">
                 <div class="job-header">
                   <span class="job-title">Wrath – Age of Ruin — <span class="en-only">Console Port</span><span class="cs-only">port na konzole</span></span>
